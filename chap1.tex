@@ -1,80 +1,6 @@
 \chapter{Introduction}
 \label{chapter:introduction}
 
-% Comments are placed after each sentence % consider doing a hard wrap to 80 or
-% so characters so.  % This will make easier to place comments on each line, for
-% GitHub
-
-The objective of this thesis is to propose a novel series of approaches to how a
-financial market can be interpreted and analyzed to obtain insights that can be
-used to describe the behavior behind that market and create a profitable trading
-strategy. In this first Chapter the reader can find the motivation of this work,
-such as why understanding a financial market is a problem (see Section
-\ref{section:description-of-the-problem}) and why solving this problem is of
-great importance (see Section \ref{section:justification}).
-
-
-% In the first sentence "propose a novel series of approaches to how a financial
-% market can be interpreted and analyzed"
-
-
-% the things you approach "interpreted and analyzed" are to far away, maybe:
-% ... approaches on how to analize and interpret a financial market ...  % we
-% must try not to use words such as "great importance" change to? " %
-% ... solving this problem is beneficial".
-
-
-As this document focuses on at least three different fields, which are
-computational intelligence, complexity theory and financial markets, a number of
-readers with a background in only a subset of these fields could have difficulty
-in understanding the various concepts needed to understand the proposed method
-in this thesis. In order to mitigate this problem, Chapter
-\ref{chapter:preliminaries} is dedicated to explaining the basic concepts needed
-to understand the contents of the following Chapters and the thesis overall.
-
-% Depending on space the comment on the background of readers could be deleted.
-
-
-Once the reader is acquainted with the necessary terminology, concepts and ideas
-discussed in the aforementioned Chapter, a series of related work is presented
-in Chapter \ref{chapter:related-work}. These works help the reader to further
-understand the problem being solved in this thesis, as one can see how different
-approaches have been taken in the past to solve similar problems. Also, the
-presented related works indirectly fuel the justification of this thesis, as the
-reader can realize how similar approaches to the proposed method have improved
-other fields of research.
-
-The actual proposed method of this thesis is presented in Chapter
-\ref{chapter:proposed-method}. In this Chapter the reader can find how the
-problem discussed in Section \ref{section:description-of-the-problem} can be
-solved. Additionally, some other proposals are discussed, such as how
-intuitionistic fuzzy sets and systems can be used to represent a knowledge in an
-expanded way, in contrast to traditional fuzzy sets and systems.
-
-A particular implementation of the proposed method is discussed in Chapter
-\ref{chapter:implementation}, which covers some technical details, such as what
-programming languages were used and how exactly the ideas from Chapter
-\ref{chapter:proposed-method} were programmed. As each of the concepts discussed
-in Chapter \ref{chapter:proposed-method} are covered in the implementation, some
-of the Sections from both Chapters match in name.
-
-After having implemented the proposed method, a series of experiments were
-performed to demonstrate how it compares to other similar solutions. The
-experiments also help the reader to understand how the method can be used to
-obtain insights from a financial market, as well as how one can use these
-insights to perform better decisions while trading such markets. These
-experiments are presented in Chapter \ref{chapter:experiments}, where their
-design is discussed, and the results obtained from the experiments are presented
-in Chapter \ref{chapter:results}.
-
-Lastly, the reader can find some conclusions about the work developed for this
-thesis in Chapter \ref{chapter:conclusions}, as well as various propositions on
-how the present work could be further developed in the future in Chapter
-\ref{chapter:future-work}.
-
-\section{Description of the Problem}
-\label{section:description-of-the-problem}
-
 % Reading this section, I think this is actually a better Introducion, start
 % with this section. Start by presenting the Problem.
 
@@ -101,9 +27,10 @@ can be vary from technical analysis using mathematical formulas to basing their
 decision on news interpretations. And even after establishing a trading
 strategy, traders can decide to ignore their conclusions due to subjective
 factors such as "having a bad feeling about this." As a consequence, financial
-markets are frequently used to showcase complexity theory concepts. Even though
-these markets can exhibit an almost chaotic behavior, certain patterns still
-emerge, which stop financial markets from being labeled as chaotic systems.
+markets are frequently used to showcase complexity theory concepts
+\ref{Arthur1999} \ref{Bundesbank2007}. Even though these markets can exhibit an
+almost chaotic behavior, certain patterns still emerge, which stop financial
+markets from being labeled as chaotic systems \ref{Castillo2001}.
 
 % Add references in: % "financial markets are frequently used to showcase
 % complexity theory concepts" % which stop financial markets from being labeled
@@ -172,6 +99,74 @@ of view, one needs to take into consideration that a number of traders with
 different ideas and different interpretations of the market are creating the
 price movements. Forecasting or modelling tools taking a technical analysis
 approach should take into consideration these factors.
+
+\section{Thesis Structure}
+\label{section:thesis-structure}
+
+% Comments are placed after each sentence % consider doing a hard wrap to 80 or
+% so characters so.  % This will make easier to place comments on each line, for
+% GitHub
+
+The objective of this thesis is to propose a novel series of approaches on how
+to analize and interpret a financial market to obtain insights that can be
+used to describe the behavior behind that market and create a profitable trading
+strategy. In this first Chapter the reader finds the motivation of this work,
+such as why understanding a financial market is a problem and why solving this
+problem is beneficial (see Section \ref{section:justification}).
+
+% In the first sentence "propose a novel series of approaches to how a financial
+% market can be interpreted and analyzed"
+
+
+% the things you approach "interpreted and analyzed" are to far away, maybe:
+% ... approaches on how to analize and interpret a financial market ...  % we
+% must try not to use words such as "great importance" change to? " %
+% ... solving this problem is beneficial".
+
+The proposed method in this document is based on at least three different
+fields, which are computational intelligence, complexity theory and financial
+markets. Chapter \ref{chapter:preliminaries} is dedicated to explaining the
+concepts related to these fields, which are needed to understand the contents of
+the following Chapters and the thesis overall.
+
+% Depending on space the comment on the background of readers could be deleted.
+
+Once the reader is acquainted with the necessary terminology, concepts and ideas
+discussed in the aforementioned Chapter, a series of related works is presented
+in Chapter \ref{chapter:related-work}. These works help the reader to further
+understand the problem being solved in this thesis, as one can see how different
+approaches have been taken in the past to solve similar problems. Also, the
+presented related works indirectly fuel the justification of this thesis, as the
+reader can realize how similar approaches to the proposed method have improved
+other fields of research.
+
+The actual proposed method of this thesis is presented in Chapter
+\ref{chapter:proposed-method}. In this Chapter the reader can find how the
+problem discussed in Section \ref{section:description-of-the-problem} can be
+solved. Additionally, some other proposals are discussed, such as how
+intuitionistic fuzzy sets and systems can be used to represent a knowledge in an
+expanded way, in contrast to traditional fuzzy sets and systems.
+
+A particular implementation of the proposed method is discussed in Chapter
+\ref{chapter:implementation}, which covers some technical details, such as what
+programming languages were used and how exactly the ideas from Chapter
+\ref{chapter:proposed-method} were programmed. As each of the concepts discussed
+in Chapter \ref{chapter:proposed-method} are covered in the implementation, some
+of the Sections from both Chapters match in name.
+
+After having implemented the proposed method, a series of experiments were
+performed to demonstrate how it compares to other similar solutions. The
+experiments also help the reader to understand how the method can be used to
+obtain insights from a financial market, as well as how one can use these
+insights to perform better decisions while trading such markets. These
+experiments are presented in Chapter \ref{chapter:experiments}, where their
+design is discussed, and the results obtained from the experiments are presented
+in Chapter \ref{chapter:results}.
+
+Lastly, the reader can find some conclusions about the work developed for this
+thesis in Chapter \ref{chapter:conclusions}, as well as various propositions on
+how the present work could be further developed in the future in Chapter
+\ref{chapter:future-work}.
 
 \section{Justification}
 \label{section:justification}
