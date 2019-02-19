@@ -1,12 +1,16 @@
 \chapter{Related Work}
 \label{chapter:related-work}
 
+% Amaury: Write an introduction to the chapter
+
 \section{Financial Forecasting}
 \label{section:financial-forecasting}
 
-In general, this work involves the use of Machine Learning to forecast financial
+% Amaury: Rewrite
+
+In general, this work involves the use of machine learning to forecast financial
 markets. In several efforts, researchers create regression models using
-Technical or Fundamental Indicators as trainig datasets. Examples of regression
+technical or fundamental indicators as training datasets. Examples of regression
 techniques are autoregression \cite{burg1968new}, symbolic regression
 \cite{billard2002symbolic}, and linear regression \cite{kutner2004applied}.
 
@@ -43,7 +47,9 @@ financial time-series.
 \section{Multi-agent Systems}
 \label{section:multi-agent-systems}
 
-The core algorithm of the Proposed Method is, at its highest level, a
+% Amaury: Rewrite
+
+The core algorithm of the proposed method is, at its highest level, a
 Multi-agent System. It is therefore paramount to mention some works which use
 MAS for the forecast or understanding of financial markets.
 
@@ -86,6 +92,8 @@ techniques to perform this kind of models are discussed.
 \section{Genetic Algorithms}
 \label{section:genetic-algorithms}
 
+% Amaury: Rewrite
+
 In the Proposed Method, Genetic Programming is used to generate the Membership
 Functions (MF) of the Fuzzy Inference Systems that act as the agents'
 functions. The use of Evolutionary Algorithms to generate MF has been proposed
@@ -101,6 +109,8 @@ simultaneously design the MF and the rule sets for fuzzy logic controllers.
 
 \section{Intuitionistic Fuzzy Systems}
 \label{section:related-work-intuitionistic-fuzzy-systems}
+
+% Amaury: Rewrite
 
 There are some noteworthy toolkits for the creation of FISs, and this Section
 gives a brief description of the ones that have had the strongest influence to
@@ -124,5 +134,79 @@ follows an interface similar to the one provided by Matlab's fuzzy logic
 toolbox, and provides more robust graphical implementations than the current
 version of Wagner's toolkit.
 
-The present work aims to provide an easily extensible implementation of an IFS
-with several tools to analyze its developed fuzzy logic systems.
+The authors of the present paper have worked in a particular way of achieving
+this type of systems, and the method is described in \cite{Hernandez-Aguila2016}
+and \cite{Hernandez-Aguila2017-2}.
+
+\subsection{Membership and Non-Membership Functions Design}
+\label{subsection:related-work-membership-and-non-membership-functions-design}
+
+The most common approach to graphically representing an IFS is by
+lattices. Examples of this type of representation can be found in the works by
+I. Despi et al. \cite{Despi2013}, and G. Deschrijver et
+al. \cite{Deschrijver2004}. This is a popular approach to graphically represent
+an IFS as it enables more compact and concise mathematical expressions. Another
+representation that is suitable for mathematical processes is that of a matrix,
+and is discussed in detail in the works by R. Parvathi et al. \cite{Parvathi2014},
+G. Çuvalcioglu et al. \cite{Yilmaz2015}, and S. Yilmaz et al. \cite{Yilmaz2015a}.
+
+IFSs that are graphically represented like membership functions are usually
+represented in Mamdani FISs, and some example works are the ones by
+K. T. Atanassov \cite{Atanassov1986}, and H. Davarzani and M. A. Khorheh
+\cite{Davarzani2013}. This notation can be suitable for representing an
+architecture of an IFIS, but if the plot is in black and white, or in greyscale,
+the reader can get confused by the membership and non-membership plots. This
+problem can be alleviated by plotting the membership and non-membership
+functions in separate plots, as in the works by O. Castillo et
+al. \cite{castillo2007intuitionistic}, and M. Akram et al. \cite{Akram2014}.
+
+There are several other graphical representations of IFSs, such as by radar
+charts, as in the work by V. Atanassova \cite{Atanassova2010}, and by
+geometrical representations, orthogonal projections and three-dimensional
+representations, as can be found in the work by E Szmidt and J. Kacprzyk
+\cite{Szmidt2000}.
+
+Some applications of IFSs in the area of medical sciences can be found in the
+works by E. Szmidt and J. Kacprzyk \cite{Szmidt2001}, C. M. Own \cite{Own2009},
+and D. D. Chakarska and L. S. Antonov \cite{Antonov1995}. In the area of group
+decision making, we have an example in the work by Z. Xu \cite{Xu2007}. IFSs
+have also been used in word recognition, in the area of artificial vision, as in
+the example work of L. Baccour et al. \cite{Baccour2008}.
+
+This work proposes that IFSs, in a Mamdani IFIS, should follow an approach
+similar to that found in the work by K. T. Atanassov \cite{Atanassov2003}, where
+the membership is plotted as is commonly done in a traditional FIS, but the
+non-membership function should be plotted as 1-υA. The reason behind this
+decision is that the non-membership function should be easily differentiated
+from the membership function, while seeing both functions in the same plot. An
+implementation of an IFIS that uses this approach for representing IFSs for a
+Mamdani IFIS can be found in the work by A. Hernandez-Aguila and
+M. Garcia-Valdez \cite{Hernandez-aguila}.
+
+In Figure \ref{figure:traditional-set-as-ifs}, one can see how a traditional
+fuzzy set can be constructed using the proposed approach. A Gaussian membership
+function with mean of 50 and a standard deviation of 15 is depicted.
+
+\begin{figure}
+\caption{A traditional fuzzy set represented as an intuitionistic fuzzy set}
+\centering
+\includegraphics[width=1.0\textwidth]{img/traditional-set-as-ifs.png}
+\label{figure:traditional-set-as-ifs}
+\end{figure}
+
+Figure \ref{figure:example-of-ifs} is the first case of an IFS that cannot be
+considered a tradi-tional fuzzy set. The red line represents the membership
+function, while the blue line represents the non-membership function. As can be
+seen, the Gaussian membership function does not have a kernel, meaning that its
+highest valued member does not equal to 1. In this case, its highest valued
+member equals to 0.7, and for the non-membership function, its highest valued
+member equals to 0.3. The Gaussian membership function is constructed with a
+mean of 50 and a standard deviation of 15. For the non-membership function, it
+is con-structed with a mean of 30 and standard deviation of 30.
+
+\begin{figure}
+\caption{Representation of an intuitionistic fuzzy set}
+\centering
+\includegraphics[width=1.0\textwidth]{img/example-of-ifs.png}
+\label{figure:example-of-ifs}
+\end{figure}
