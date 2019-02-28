@@ -1,8 +1,40 @@
 \chapter{Proposed Method}
 \label{chapter:proposed-method}
 
+This Chapter describes each of the modules that integrate the method used to
+create the trading strategy proposed in this work and how their integration is
+performed.
+
 \section{Preprocessing a Financial Market using Retracements}
 \label{section:preprocessing-a-financial-market-using-retracements}
+
+Many works that propose methods for financial market forecasting or modelling do
+not preprocess the time series that represent a financial market \cite{}. As a
+consequent, some of the models that try to simulate these markets have an additional
+complexity layer to deal with, similarly to the difficulty that a neural network
+would encounter at trying to do facial recognition to un-processed images. For
+this reason, a facial recognition algorithm needs to be fed images that have
+been rotated, scaled down, and reduced in noise by using image processing
+algorithms \cite{}.
+
+For financial market preprocessing, an option is to use technical indicators:
+mathematical calculations that are applied to time series that represent the
+historical prices of a financial market. As an example of a technical
+indicator's use, a moving average -- a series of averages of different subsets
+of the full data set -- can remove the noise in a market by creating a smooth
+line that represents each of the data points in the time series, as can be seen in Figure
+\ref{figure:moving-average-noise}. Other technical indicators can provide other
+types of insight about a market, such as the market's volatility, support and
+resistance levels, and overbought and oversold levels, among others \cite{}.
+
+\begin{figure}
+\caption{Using a moving average to remove the noise from a financial market time
+series} \centering
+\includegraphics[width=1.0\textwidth]{img/moving-average-noise.png}
+\label{figure:moving-average-noise}
+\end{figure}
+
+
 
 \begin{itemize}
 \item Each agent will have its own version of the preprocessed market
@@ -11,11 +43,11 @@
 \section{Using Agents to Represent Traders in a Financial Market}
 \label{section:using-agents-to-represent-traders-in-a-financial-market}
 
-\section{Representing the Agents' Beliefs as Intuitionistic Fuzzy Systems}
-\label{section:representing-the-agents-beliefs-as-intuitionistic-fuzzy-systems}
+\section{Representing the Agents' Rules as Intuitionistic Fuzzy Systems}
+\label{section:representing-the-agents-rules-as-intuitionistic-fuzzy-systems}
 
-\subsection{Misuse of Indeterminacy or Hesitancy}
-\label{subsection:misuse-of-indeterminacy-or-hesitancy}
+\subsection{Indeterminacy or Hesitancy}
+\label{subsection:indeterminacy-or-hesitancy}
 
 \section{Generation of an Agent-Based Model}
 \label{section:generation-of-an-agent-based-model}
