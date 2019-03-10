@@ -33,24 +33,25 @@ support and resistance levels, and overbought and oversold levels, among others
 
 \begin{figure}
 \caption{Using a moving average to remove the noise from a financial market time
-series} \centering
-\includegraphics[width=1.0\textwidth]{img/moving-average-noise.png}
+  series} \centering
+\includegraphics[width=1.0\textwidth]{img/moving-average.png}
 \label{figure:moving-average-noise}
 \end{figure}
 
 This thesis emphasizes that a financial market's data should always be
-preprocessed, and for this reason the proposed method makes this a
+preprocessed, and for this reason the proposed method forces this as a
 requirement. Although any preprocessing method could be used with the proposed
 method, with minimal modifications to the other modules conforming the method, a
 preprocessing method that yields multiple insights about the market is
 preferred. Additionally, these insights should be numerically represented,
 should be continuous and their possible values should encompass an interval. For
 example, multiple technical indicators can be used to provide different kinds of
-insights. Figure \ref{figure:multiple-technical-indicators} shows how three moving
-averages can be used to represent different perspectives of the market.
+insights. Figure \ref{figure:multiple-technical-indicators} shows how three
+moving averages can be used to represent different perspectives of the market.
 
 \begin{figure}
-\caption{Using three moving averages to represent different perspectives of the market} \centering
+\caption{Using three moving averages to represent different perspectives of the
+  market} \centering
 \includegraphics[width=1.0\textwidth]{img/multiple-technical-indicators.jpg}
 \label{figure:multiple-technical-indicators}
 \end{figure}
@@ -58,6 +59,68 @@ averages can be used to represent different perspectives of the market.
 % Explain that we use retracements
 % Explain the whole enchilada: we add the duplicated fibos, we group them in
 % zones of 10 pips, we do it for each price, etc.
+
+This work uses a preprocessing method based on the concept of price retracements
+(see Subsection \ref{subsection:retracements-in-financial-markets}). The
+backbone idea of this method is to apply a series of retracements to each of the
+price differences in a data set. These price differences are described by
+\ref{eq:price-differences}.
+
+\begin{equation}
+  \label{eq:price-differences}
+  \bm{\Delta} = \{ P_1 - P_0, P_2 - P_1 \ldots P_n - P_n-1 \}
+\end{equation}
+
+For example, if the Fibonacci ratios $0.236$, $0.382$ and $0.618$ are used to
+generate retracements for the time series $1.35$, $1.36$, $1.34$ and $1.35$ the
+values $1.36236$, $1.36382$ and $1.3661801$ are obtained for the first price
+difference; $1.3352801$ $1.33236$ and $1.32764$ for the second price difference;
+and $1.35236$, $1.35382$ and $1.3561801$ for the last price difference.
+
+Traders normally calculate a single set of retracements for a subset of prices
+(see Figure \ref{figure:fibonacci-retracements-in-financial-market}). In
+contrast, the process explained in the previous paragraphs calculates multiple
+sets of retracements for each of the price differences in a subset of
+prices. Figure \ref{figure:retracements-one-price} depicts a plot of the
+retracements represented as gray horizontal lines for the previous 200 price
+differences from the last price point. In case this is a grayscale printed copy,
+the lines that are shorter in width are retracements and the longer ones are
+guidelines printed every multiple of $0.0010$.
+
+\begin{figure}
+\caption{Retracement lines observed at a singe time point} \centering
+\includegraphics[width=1.0\textwidth]{img/retracements-preprocessing-one-price.png}
+\label{figure:retracements-one-price}
+\end{figure}
+
+After applying the preprocessing algorithm based on retracements, multiple sets
+of retracements are obtained, one for each of the price differences in the
+prices subset. Some of these retracements will be duplicates and, for this
+reason, a weight is associated to the retracements. If a retracement is found
+$n$ times, then the retracement will be associated with a weight of $n$. As canb
+e seen in Figure \ref{figure:retracements-one-price}, some retracements are of a
+darker color than others -- this color saturation is a graphical representation
+of the retracement's weight. Retracements with a greater weight should be trated
+as of greater importance, i.e. it should be more common to see a price reversal
+or stagnation around such retracement.
+
+As can be noted in Figure \ref{figure:retracements-one-price}, the retracements
+plotted are only relevant to a single price point -- the last one. Retracements
+at each of the prices in a time series can be plotted if one uses a heatmap
+chart, as the one found in Figure
+\ref{figure:retracements-all-prices}. Additionally, the latter Figure also
+groups all the retracements into 10 unit-areas or, in other words, instead of
+having weighted retracement prices now the plot is showing weighted retracement
+price intervals. This retracement aggregation is paramount for the proposed
+method, as the market data becomes more simplified and easier to read for the
+agents: each square in the heatmap represents the influence of the past 200
+price points, for a set of 10 different price levels.
+
+\begin{figure}
+\caption{Retracement lines observed for every time point} \centering
+\includegraphics[width=1.0\textwidth]{img/retracements-preprocessing-all-prices.png}
+\label{figure:retracements-all-prices}
+\end{figure}
 
 \section{Using Agents to Represent Traders in a Financial Market}
 \label{section:using-agents-to-represent-traders-in-a-financial-market}
@@ -67,7 +130,6 @@ most natural ways to do so. The explanation for this is that any financial
 market is, in fact, being constructed by a group of agents: the traders. In the
 proposed method, agents follow the process depicted in Figure
 \ref{figure:agent-architecture}.
-
 
 \begin{figure}
 \caption{Architecture of an agent} \centering
@@ -309,7 +371,13 @@ financial market \cite{Martin2011}.
 \section{Using the Agent-Based Model to create a Trading Strategy}
 \label{section:using-the-agent-based-model-to-create-a-trading-strategy}
 
-Using the multi-agent system as a trading strategy is straightforward. After
-the system has undergone through the optimization process, it should represent a
-generalized model of a financial market. The system is adjusted for a training
-dataset, but if a different dataset
+Using the multi-agent system as a trading strategy is straightforward. After the
+system has undergone through the optimization process, it should represent a
+generalized model of the financial market that was fed to the system as a
+training dataset. This training data set encompasses a time period that goes
+from $t_0-n$ to $t_0$. If the beliefs and rules obtained from the optimization
+process still describe the financial market after the aforementioned time
+period, then the system is able to forecast the prices comprehending a time
+period from $t_0$ to $t_0+m$. As a result, a trader that decides to use the
+proposed method as a trading strategy should consider the simulated prices as a
+guideline on what trading decisions to take.
