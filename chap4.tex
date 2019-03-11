@@ -56,19 +56,22 @@ moving averages can be used to represent different perspectives of the market.
 \label{figure:multiple-technical-indicators}
 \end{figure}
 
-% Explain that we use retracements
-% Explain the whole enchilada: we add the duplicated fibos, we group them in
-% zones of 10 pips, we do it for each price, etc.
-
-This work uses a preprocessing method based on the concept of price retracements
-(see Subsection \ref{subsection:retracements-in-financial-markets}). The
-backbone idea of this method is to apply a series of retracements to each of the
-price differences in a data set. These price differences are described by
-\ref{eq:price-differences}.
+The author of this thesis has worked with a variety of technical indicators for
+trading a number of financial markets, and has found that support and
+resistance-based technical indicators can be used to successfully trade in a
+financial market without the use of any other indicators. For this reason, the
+proposed method uses a preprocessing algorithm based on this type of technical
+indicators. Although it is a subjective reason, it is paramount to note that the
+proposed method can easily be adapted to any other preprocessing method; the
+preprocessing stage in this work is used mainly in the hopes of facilitating the
+agents the interpretation of the market, and thus facilitate the creation of a
+model that simulates the market. The backbone idea of this method is to apply a
+series of retracements to each of the price differences in a data set. These
+price differences are described by \ref{eq:price-differences}.
 
 \begin{equation}
   \label{eq:price-differences}
-  \bm{\Delta} = \{ P_1 - P_0, P_2 - P_1 \ldots P_n - P_n-1 \}
+  \bm{\Delta} = \{ P_1 - P_0, P_2 - P_1, \ldots P_n - P_{n-1} \}
 \end{equation}
 
 For example, if the Fibonacci ratios $0.236$, $0.382$ and $0.618$ are used to
@@ -157,10 +160,10 @@ be obtained by the calculation represented by \ref{equation:sum-of-agents-units}
 
 \begin{equation}
   \label{equation:sum-of-agents-units}
-  p_t0 = p_t-1 + \sum_{i=1}^{N} U_i
+  p_{t0} = p_t-1 + \sum_{i=1}^{N} U_i
 \end{equation}
 
-where $p_t-1$ represents the previous price, i.e. the price for time $t_-1$, and
+where $p_{t-1}$ represents the previous price, i.e. the price for time $t_{-1}$, and
 $U$ denotes the number of units an agent will trade at time $t_0$. The number of
 units can either be positive or negative. This model can successfully represent
 how a number of trades in different directions and magnitudes can move the price
@@ -280,7 +283,7 @@ declines if the majority is selling the asset. The process aforementioned can be
 used to create a simulation of a market, where the agents in a multi-agent
 system need to be adjusted to create a zero-sum situation that fits the real
 market prices. For example, if the price difference between the price at $t_n$
-and the price at $t_n+1$ is -10 units, the sum of the units traded by all the
+and the price at $t_{n+1}$ is -10 units, the sum of the units traded by all the
 agents must be equal to those -10 units.
 
 In the case of simulating a single price, the adjustment of the multi-agent
@@ -375,9 +378,9 @@ Using the multi-agent system as a trading strategy is straightforward. After the
 system has undergone through the optimization process, it should represent a
 generalized model of the financial market that was fed to the system as a
 training dataset. This training data set encompasses a time period that goes
-from $t_0-n$ to $t_0$. If the beliefs and rules obtained from the optimization
+from $t_{0-n}$ to $t_0$. If the beliefs and rules obtained from the optimization
 process still describe the financial market after the aforementioned time
 period, then the system is able to forecast the prices comprehending a time
-period from $t_0$ to $t_0+m$. As a result, a trader that decides to use the
+period from $t_0$ to $t_{0+m}$. As a result, a trader that decides to use the
 proposed method as a trading strategy should consider the simulated prices as a
 guideline on what trading decisions to take.
