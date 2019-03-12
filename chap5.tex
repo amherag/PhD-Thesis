@@ -2,7 +2,10 @@
 \label{chapter:implementation}
 
 The following Sections describe an implementation of the proposed method
-described in Chapter \ref{chapter:proposed-method}.
+described in Chapter \ref{chapter:proposed-method}. This implementation uses the
+intuitionistic fuzzy system described in \cite{Hernandez-Aguila2017}, which is
+programmed in Clojure, and a custom-made multi-agent system that was done in
+Common Lisp.
 
 \section{Defining the Input Dataset}
 \label{section:defining-the-input-dataset}
@@ -28,6 +31,9 @@ this information is also discarded. Finally, the time associated to each session
 in the dataset is used, which means that from any financial market dataset used,
 this implementation only uses the close price of each session and the time at
 which this close price occurred.
+
+This implementation only works for datasets of foreign exchange financial
+markets.
 
 \section{Preprocessing a Financial Market using Retracements}
 \label{section:preprocessing-a-financial-market-using-retracements:implementation}
@@ -55,14 +61,14 @@ implementation. For example, in the case of the Euro vs United States Dollar,
 the price interval $[1.1300, 1.1400]$ can be divided into ten price areas of 10
 units each, as a single unit in this market is equivalent to $0.0010$. If three
 retracement prices are contained in the interval $[1.1300, 1.1310\right)$, then
-this area is associated a weight of $3$. An example of such price areas is
-shown in Figure \ref{figure:example-of-retracement-areas}. The heatmap scale
-is shown at the right, showing that blocks with a greater weight are of a
-lighter color, while blocks with a lower weight are of a darker color.
+  this area is associated a weight of $3$. An example of such price areas is
+  shown in Figure \ref{figure:example-of-retracement-areas}. The heatmap scale
+  is shown at the right, showing that blocks with a greater weight are of a
+  lighter color, while blocks with a lower weight are of a darker color.
 
 \begin{figure}
 \caption{Example of retracement areas} \centering
-\includegraphics[width=1.0\textwidth]{img/retracement-areas.png}
+\includegraphics[width=0.7\textwidth]{img/retracement-areas.png}
 \label{figure:example-of-retracement-areas}
 \end{figure}
 
@@ -72,23 +78,210 @@ lighter color, while blocks with a lower weight are of a darker color.
 An agent is represented by a vector containing its beliefs and by a matrix
 containing its rules. The elements in the belief vector, as mentioned in
 \ref{section:defining-the-input-dataset}, are random real numbers with values in
-the interval $[0, 2]$. In the case of the rules, the elements are vectors of
-three elements, where the first and second elements are real numbers, with
-random values in the interval $[0, 100]$, which represent the means of Gaussian
+the interval $[0, 2]$.
+
+Each of the rules are composed of four elements: three antecedents and one
+consequent. Each of these propositions are composed of vectors of three
+elements, where the first and second elements are real numbers, with random
+values in the interval $[0, 100]$, which represent the means of Gaussian
 membership and non-membership functions, respectively. The last element
 represents the indeterminacy in the intuitionistic fuzzy set determined by the
-membership and non-membership functions. This indeterminacy is a random real
-number, which takes a value in the interval $[0, 1]$, influences both the
-membership and non-membership in the following way: if the indeterminacy is
-equal to $\pi$, then the max membership value in the membership function is
-equal to $1 - \pi$, and the max non-membership value in the non-membership
-function is equal to $\pi$.
+membership and non-membership functions. Indeterminacy is represented by a
+random real number, which takes a value in the interval $[0, 1]$, influences
+both the membership and non-membership in the following way: if the
+indeterminacy is equal to $\pi$, then the max membership value in the membership
+function is equal to $1 - \pi$, and the max non-membership value in the
+non-membership function is equal to $\pi$.
 
-\section{Representing the Agents' Rules as Intuitionistic Fuzzy Systems}
-\label{section:representing-the-agents-rules-as-intuitionistic-fuzzy-systems}
+Each of the agents uses their beliefs to create a perception of the market based
+on price areas that are associated to a weight that is based on the number of
+retracements contained in them, as explained in Section
+\ref{section:defining-the-input-dataset}. These price areas are used as inputs
+to the agents' rules, which are used to create an intuitionistic fuzzy
+system. Specifically, the fuzzy system is going to be fed the weights of three
+price areas: the weight of the area above the current price, the weight of area
+that is containing the current price, and the weight of the area below the
+current price, where the current price is the market price associated to a
+particular time in the time series. An example of this situation is depicted in
+Figure \ref{figure:areas-for-ifis}, where the current price is represented by
+the black candlestick in the middle of the three price areas. The three areas
+are associated to an intuitionistic fuzzy set in the rule vector, and the last
+intuitionistic fuzzy set is associated to the agent's trade decision, i.e. how
+many units is it going to trade for a particular market perception.
 
-\section{Generating the Agent-Based Model}
-\label{section:generating-the-agent-based-model}
+\begin{figure}
+\caption{Graphical representation of the price areas used as inputs to the
+  intuitionistic fuzzy system} \centering
+\includegraphics[width=0.7\textwidth]{img/areas-for-ifis.png}
+\label{figure:areas-for-ifis}
+\end{figure}
 
-\section{Extracting Insights about a Financial Market}
-\label{section:extracting-insights-about-a-financial-market}
+The antecedents of a rule fire the same consequent, and the intersection
+operation is applied over the three generated fired consequents (the alpha-cuts
+of the consequents). The intersection operation is used to simulate the Boolean
+operator \textit{and} among the propositions \cite{Atanassov1986}. After
+generating each of the fired, or alpha-cut, consequents for each of the rules,
+an aggregation is performed using the union operator, which simulates the
+consideration of all the rules from an agent. This aggregation is then
+defuzzified using the method found in \cite{Hernandez-Aguila2017} to obtain a
+crisp value in the interval $[0, 100]$. In order to be able to simulate sell and
+buy orders for the agent, the result of the fuzzy system is then processed by
+\ref{eq:agent-trade-units}, which maps the crisp value to a value in the
+interval of $[-0.005, 0.005]$ that corresponds to the number of units to buy or
+sell.
+
+\begin{equation}
+  \label{eq:agent-trade-units}
+  A_u(x) = \frac{2x - 100}{10000}
+\end{equation}
+
+The number of rules in an agent can vary depending on the desired modelling
+capabilities of the system, i.e. an agent with more rules can adopt a more
+complex behavior than one with a fewer number of rules. The two drawbacks with
+increasing the number of rules are a higher computational cost when optimizinig
+the system, and an increased risk of overtraining the system.
+
+Another parameter that can be adjusted in this implementation is the number of
+agents in the system. The number of agents, similarly to the number of rules,
+can be adjusted depending on the desired modelling capabilities of the system. A
+greater number of agents allow the system to achieve a closer curve-fitting to
+the real market prices.
+
+\section{Optimization of the Agent-Based Model using a Genetic Algorithm}
+\label{section:optimization-of-the-agent-based-model-using-a-genetic-algorithm}
+
+The reader can notice that the implementation already describes in the previous
+Sections of this Chapter the components necessary to generate a simulation of a
+market. Nevertheless, this simulation will most likely not be a close
+resemblance to the real market prices. A genetic algorithm is used to find a
+combination of beliefs and rules for the agents that can obtain simulations that
+are closer to the real market prices.
+
+The genetic algorithm considers an individual or chromosome in two parts: the
+beliefs and the rules of the agents. The reason behind this is the
+incompatibility between the two data structures; it was considered an easier
+approach by the author of the implementation. For example, whenever an agent is
+going to suffer a mutation, the mutation algorithm will depend on where it will
+occur: either in the beliefs or in the rules segments. In the end, this
+differentiation is negligible, but it is noteworthy for the adventurous reader
+that wants to examine the implementation provided in its git repository.
+
+As is noted in the previous paragraph, a single chromosome is composed of
+different agents. It is important to remark this, as the reader could be
+confused into thinking that a single agent represents an individual or a
+chromosome in the genetic algorithm. It can be said that the chromosomes
+represent communities of agents.
+
+In the following Subsections, the evolutionary process is described in greater
+detail.
+
+\subsection{Fitness Function}
+\label{subsection:fitness-function}
+
+The fitness of a chromosome is determined by obtaining the mean-squared error
+between the agents' simulation of the real market and the real market
+prices. This process is described by \ref{eq:mse}, where $R$ is the set of real
+market prices, $S$ is the set of simulated market prices and the $MSE$ of both
+sets is defined as the squared sum of the differences between each of the real and
+simulated prices in the sets. The mean of the result is obtained so the results
+are comparable among $MSE$s of price sets of different sizes.
+
+\begin{equation}
+  \label{eq:mse}
+  MSE(\bm{R}, \bm{S}) = \frac{\sum_{i=1}^{n}(r_i-s_i)^{2}}_{n}
+\end{equation}
+
+The randomly generated communities of agents sometimes throw an error during the
+first iterations in the evolutionary process. This is most likely due to
+incoherent rules being used to build the intuitionistic fuzzy systems. The way
+these cases are handled is by ignoring the error and penalizing these
+individuals with a very high error. This way the evolutionary process takes care
+of removing the buggy individuals.
+
+\subsection{Selection}
+\label{subsection:selection}
+
+Once all the communities of agents in the system are evaluated to obtain their
+corresponding error, a process of roulette wheel selection takes place. This
+process creates a proportional fitness to each of the communities of agents by
+calculating \ref{eq:proportional-finess}
+
+\begin{equation}
+  \label{eq:proportional-fitness}
+  p_i = \frac{f_i}_{\sum_{j=1}^{N} f_j}
+\end{equation}
+
+and this proportional fitness is used to associate a probability of selection to
+each community of agents. A random probability of selection in the interval of
+$(0, 1.0]$ is generated. If the proportional fitness of a community of agents is
+greater than this probability, the individual is chosen, but if this is not the
+case, the proportional fitness of that agent is accumulated with the next agent
+to be considered for selection, and the process is repeated until a community of
+agents with an accumulated proportional fitness greater than the random
+probability is found.
+
+The roulette wheel selection algorithm was chosen arbitrarily.
+
+\subsection{Mutation}
+\label{subsection:mutation}
+
+After selecting a community of agents using the roulette wheel selection
+algorithm, there's a probability of mutation of 0.5\%. The mutation process can
+affect an individual in different parts of its constitution, as the
+aforementioned mutation probability determines if a gene (a belief or a rule
+proposition) should suffer the mutation. This can be seen as a traversal of
+every belief and rule in a community of agents, and every time one of the nodes
+in this traversal process is visited, there's a chance of modifying the node.
+
+In order to perform the actual mutation, a new random belief value is generated,
+in the case of mutating a belief, or a new rule proposition (an antecedent or a
+consequent) is generated. The new generated belief or rule proposition then
+replaces the belief or rule proposition chosen to be mutated.
+
+Similarly to the roulette wheel selection algorithm, this mutation algorithm was
+chosen arbitrarily.
+
+\subsection{Crossover}
+\label{subsection:crossover}
+
+The crossover process involves two individuals that recombine their genetic
+material which, in this case, represents the beliefs and rules of the agents in
+a community of agents. This process is similar to the mutation process, where
+there is a probability of occurring.
+
+The crossover is rather simple: all the beliefs of the agents in each of the
+community of agents being recombined are concatenated, and then these two
+vectors are split at some point, generating four new vectors $A_1$, $A_2$, $B_1$
+and $B_2$; the new vector of beliefs for the first community of agents
+corresponds to the concatenation of $A_1$ and $B_2$, and the new vector of
+beliefs for the second community of agents is obtained by concatenating $B_1$
+and $A_2$. This process is then applied to the sets of rules from the two
+communities.
+
+This crossover algorithm is commonly known as single-point crossover and it was
+chosen due to its simplicity.
+
+\subsection{Evolutionary Process}
+\label{subsection:evolutionary-process}
+
+The evolutionary process contains all of the processes mentioned in the previous
+Subsections. This process is performed for a number of iterations, which are
+commonly called generations due to the analogy with biology evolution, and for a
+number of communities of agents, which is called a population. The higher the
+number of generations, the higher the probability of achieving an individual
+with a better fitness.
+
+A generation consists of the following steps: two individuals are selected from
+the population, with a probability of suffering a mutation process when
+selected, and the crossover process is tried to be applied on them, if the
+crossover process is applied, then the two selected individuals will be
+recombined, and if it fails the two individuals are returned to the population
+unchanged. This process is repeated a number of times equal to the number of
+generations.
+
+As an additional step, if the best individual from the previous generation is
+recombined with another, a copy of this individual is made and is added to the
+population. This is done with the goal of achieving elitism in the evolutionary
+process. In order to preserve the size of the population across all the
+generations, when the best individual is copied onto the next generation, the
+worst individual from the population is discarded.
