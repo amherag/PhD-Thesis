@@ -10,15 +10,19 @@ example, analyzing projectile trajectories is a rather easy to understand
 problem, where the number of significant factors involved in the problem is
 low. As another example, we can perform a structural analysis of a building, and
 even though the number of loads being involved in the analysis can be very high,
-one can still understand how the loads are going to interact among them with a
+one can still understand how the loads are going to interact among them with a 
+% This is true, but this  possible because of how the system is modeled,
+% ignoring the many variables involved. For instance, tiny air waves or changes in steel beams. 
+% Never the less these systems are easy to model and are usefull at a certain level of abstraction.
+% Maybe you could briefly comment on this.  - Mario
 very high precision. In contrast, there are systems where the elements that are
 interacting in it are very hard to understand or the number of elements is
-incredibly high. For example, understanding why human beings can change their
+very high. For example, understanding why human beings can change their
 religious beliefs is a situation which is very hard to understand, or to
 calculate what is going to be the final position of thousands of paper sheets
 thrown in the air at the same time is a task which is almost impossible to
 do. These systems that are hard to model by simple mathematical formulas are
-known as complex systems.
+known as complex systems. % Add a reference to an important paper on CS.
 
 A financial market is an example of a complex system, where thousands of traders
 are constantly deciding how many units are going to be sold or bought at
@@ -37,8 +41,8 @@ markets from being labeled as chaotic systems \ref{Castillo2001}.
 % as chaotic systems.
 
 One of the methods used for forecasting how a financial market will behave in
-price is to use fundamental analysis \ref{}. This type of analysis takes into
-account information that you can gather from the factors that influence the
+price is to use fundamental analysis \ref{}. This type of analysis takes into % Reference missing
+account information that you can gather from the factors that influence the % Can we say knowledge instead of information?
 market's price. For example, if a company releases their financial statements
 and they demonstrate that the company is performing financially well, it is very
 likely that a surge in the company's stock price will occur. In this case, a
@@ -76,7 +80,9 @@ technical analysis is correct. Nevertheless, there is a big number of technical
 indicators, and many of these technical indicators are parametrized, which means
 that there are many possible ways of interpreting a market using technical
 indicators. Still, there is enough empirical evidence that demonstrates that
-technical analysis can help a trader to better understand a market. A possible
+technical analysis can help a trader to better understand a market. 
+%% Are there any references about this empirical evidence? or is it anecdotal?
+A possible
 explanation behind this is that, although there are virtually an infinite number
 of possible configurations that a technical indicator can adopt, not all of them
 seem to "follow the market," i.e. a technical indicator needs to be configured
@@ -100,6 +106,13 @@ different ideas and different interpretations of the market are creating the
 price movements. Forecasting or modelling tools taking a technical analysis
 approach should take into consideration these factors.
 
+% There is a bridge missing over here. Please write a conclusion paragraph 
+% for this passage. Briefly state what is the problem and what could be a soulution?
+% - Mario 
+
+%% P.D., after reading further, I think the section break could be the problem.
+%% Move it to the point where you are going to state the structure or even remove it 
+
 \section{Thesis Structure}
 \label{section:thesis-structure}
 
@@ -107,9 +120,12 @@ approach should take into consideration these factors.
 % so characters so.  % This will make easier to place comments on each line, for
 % GitHub
 
-The objective of this thesis is to propose a novel series of approaches on how
+The objective of this thesis is to propose a novel series of approaches on how % series of approaches -> Methodology 
+% You are proposing a new method  
 to analize and interpret a financial market to obtain insights that can be
-used to describe the behavior behind that market and create a profitable trading
+used to describe the behavior behind that market and create a profitable trading 
+% and create a profitable trading  -> and create a trading strategy with better perfomance 
+% or something like this. We cannot warrant a profitable trading strategy. 
 strategy. In this first Chapter the reader finds the motivation of this work,
 such as why understanding a financial market is a problem and why solving this
 problem is beneficial (see Section \ref{section:justification}).
@@ -132,7 +148,7 @@ the following Chapters and the thesis overall.
 % Depending on space the comment on the background of readers could be deleted.
 
 Once the reader is acquainted with the necessary terminology, concepts and ideas
-discussed in the aforementioned Chapter, a series of related works is presented
+discussed in the aforementioned Chapter, a series of related works are presented
 in Chapter \ref{chapter:related-work}. These works help the reader to further
 understand the problem being solved in this thesis, as one can see how different
 approaches have been taken in the past to solve similar problems. Also, the
@@ -158,7 +174,7 @@ After having implemented the proposed method, a series of experiments were
 performed to demonstrate how it compares to other similar solutions. The
 experiments also help the reader to understand how the method can be used to
 obtain insights from a financial market, as well as how one can use these
-insights to perform better decisions while trading such markets. These
+insights to perform better decisions while trading such markets. These % trading IN such markets? or is jargon?
 experiments are presented in Chapter \ref{chapter:experiments}, where their
 design is discussed, and the results obtained from the experiments are presented
 in Chapter \ref{chapter:results}.
@@ -194,7 +210,7 @@ also send transaction operations to the broker, such as buy or sell orders. Many
 authors consider multi-agent systems and agent-based models as one of the better
 tools for modelling and simulating financial markets \cite{Lebaron2001}
 \cite{Gamil2007} \cite{Boer-Sorban2008}, due to their flexibility to represent
-very complex systems.
+very complex systems. % Also there is the paper from Puga, please add a reference. 
 
 Implementing an agent-based solution allows not only to simulate the actions
 that different entities can take in a complex system, but also to model how the
