@@ -18,7 +18,7 @@ fed images that have been rotated, scaled down, and reduced in noise by using
 image processing algorithms \cite{}. After doing this preprocessing, it is
 easier for a modelling algorithm to create a model of a financial market, as it
 does not have to waste time and effort at trying to distinguish between noise
-and significant data.
+and significant data. 
 
 For financial market preprocessing, an option is to use technical indicators:
 mathematical calculations that are applied to time series that represent the
@@ -26,7 +26,7 @@ historical prices of a financial market. As an example of a technical
 indicator's use, a moving average -- a series of averages of different subsets
 of the full data set -- can remove the noise in a market by creating a smooth
 line that represents each of the data points in the time series, as can be seen
-in Figure \ref{figure:moving-average-noise}. Other technical indicators can
+in Figure~\ref{figure:moving-average-noise}. Other technical indicators can
 provide other types of insight about a market, such as the market's volatility,
 support and resistance levels, and overbought and oversold levels, among others
 \cite{}.
@@ -46,7 +46,7 @@ preprocessing method that yields multiple insights about the market is
 preferred. Additionally, these insights should be numerically represented,
 should be continuous and their possible values should encompass an interval. For
 example, multiple technical indicators can be used to provide different kinds of
-insights. Figure \ref{figure:multiple-technical-indicators} shows how three
+insights. Figure~\ref{figure:multiple-technical-indicators} shows how three
 moving averages can be used to represent different perspectives of the market.
 
 \begin{figure}
@@ -181,8 +181,9 @@ ideas proposed by Shoham in \cite{Shoham1993}, where agents have a set of
 beliefs that influence how they perceive their environment.
 
 This work proposes that the beliefs of an agent can be represented by the
-parameters of their environment preprocessing algorithm. As described in Section
-\ref{section:preprocessing-a-financial-market-using-retracements}, retracements
+parameters of their environment preprocessing algorithm. As described in 
+Section~\ref{section:preprocessing-a-financial-market-using-retracements}, 
+retracements
 are used to achieve this preprocessing in the proposed method, which means that
 the agents in the agent-based model use as their beliefs a set of ratios that
 are used to obtain the retracements in the market. These retracements are then
@@ -375,7 +376,7 @@ financial market \cite{Martin2011}.
 \label{section:using-the-agent-based-model-to-create-a-trading-strategy}
 
 Using the multi-agent system as a trading strategy is straightforward. After the
-system has undergone through the optimization process, it should represent a
+system has undergone the optimization process, it should represent a
 generalized model of the financial market that was fed to the system as a
 training dataset. This training data set encompasses a time period that goes
 from $t_{0-n}$ to $t_0$. If the beliefs and rules obtained from the optimization

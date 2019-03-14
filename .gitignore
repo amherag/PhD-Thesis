@@ -4,3 +4,10 @@
 results/
 data/
 plots/
+*.aux
+*.lof
+main.lot
+main.log
+main.toc
+*.gz
+main.pdf
