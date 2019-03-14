@@ -1,8 +1,44 @@
 \chapter{Experiments}
 \label{chapter:experiments}
 
-\section{Extracting Insights about a Financial Market}
-\label{section:extracting-insights-about-a-financial-market}
+This Chapter describes a series of experiments that were performed in order to
+demonstrate the capabilities of the proposed method regarding two areas:
+forecasting and interpretability. The forecasting capabilities of the method are
+demonstrated by exhibiting how the multi-agent model simulates the prices in
+training and testing datasets, and how the system's curve-fitting error
+decreased throughout the genetic algorithm's generations. The simulated profits
+are also included, for both the training and testing datasets. Regarding the
+interpretation capabilities of the method, a description of how the agents
+perceive the market is shown. This description also describes what actions the
+agents take according to their perceptions.
+
+A total of 135 experiments were performed, but due to space constraints in this
+thesis document, only some of the experiments are shown. The reader can find the
+plots and interpretations for all the experiments performed in the Git repository of
+this thesis here: https://github.com/amherag/PhD-Thesis/.
+
+% All 100 gen, same range of time
 
 \section{Forecasting the Prices of a Financial Market}
 \label{section:forecasting-the-prices-of-a-financial-market}
+
+
+
+\section{Extracting Insights about a Financial Market}
+\label{section:extracting-insights-about-a-financial-market}
+
+\subsection{AUD/USD 4 Agents, 4 Rules, 4 Individuals}
+\label{}
+
+\begin{itemize}
+\item 3 agents — with an average profit of 68 units — perceived in 85\% of the market that a weak resistance above current price — with a hesitancy of 0.147 — is a signal to sell — with a hesitancy of 0.079.
+\item 2 agents — with an average profit of 352 units — perceived in 47\% of the market that a moderate resistance below current price — with a hesitancy of 0.134 — is a signal to sell — with a hesitancy of 0.151.
+\item 2 agents — with an average profit of 323 units — perceived in 6\% of the market that a strong resistance below current price — with a hesitancy of 0.098 — is a signal to sell — with a hesitancy of 0.024.
+\item 2 agents — with an average profit of 323 units — perceived in 55\% of the market that a weak resistance nearby current price — with a hesitancy of 0.04 — is a signal to sell — with a hesitancy of 0.138.
+\item 2 agents — with an average profit of 309 units — perceived in 0\% of the market that a strong resistance above current price — with a hesitancy of 0.127 — is a signal to sell — with a hesitancy of 0.14.
+\item 2 agents — with an average profit of 96 units — perceived in 38\% of the market that a moderate resistance nearby current price — with a hesitancy of 0.097 — is a signal to buy — with a hesitancy of 0.098.
+\item 2 agents — with an average profit of 96 units — perceived in 86\% of the market that a weak resistance above current price — with a hesitancy of 0.186 — is a signal to buy — with a hesitancy of 0.092.
+\item 2 agents — with an average profit of 96 units — perceived in 4\% of the market that a strong resistance nearby current price — with a hesitancy of 0.382 — is a signal to buy — with a hesitancy of 0.085.
+\item 2 agents — with an average profit of 96 units — perceived in 0\% of the market that a strong resistance above current price — with a hesitancy of 0.092 — is a signal to buy — with a hesitancy of 0.075.
+\item 2 agents — with an average profit of 40 units — perceived in 52\% of the market that a weak resistance below current price — with a hesitancy of 0.009 — is a signal to sell — with a hesitancy of 0.132.
+\end{itemize}
