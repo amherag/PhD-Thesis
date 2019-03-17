@@ -1,6 +1,9 @@
 \chapter{Experiments}
 \label{chapter:experiments}
 
+%\subcaptionbox{Training Curve-Fitting}{\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-10agents-10rules-20ind-100gen_training_fit.pdf}}\quad
+%subcaptionbox{}{\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-10agents-10rules-20ind-100gen_training_profits.pdf}}
+
 This Chapter describes a series of experiments that were performed in order to
 demonstrate the capabilities of the proposed method regarding two areas:
 forecasting and interpretability. The forecasting capabilities of the method are
@@ -23,30 +26,363 @@ repository of this thesis here: https://github.com/amherag/PhD-Thesis/.
 \section{Forecasting the Prices of a Financial Market}
 \label{section:forecasting-the-prices-of-a-financial-market}
 
-\subsection{AUD/USD 10 Agents, 10 Rules, 20 Individuals}
-\label{}
+\subsection{AUD/USD 4 Agents, 4 Rules, 4 Individuals}
+\label{results:forecast-aud-usd-4agents-4rules-4individuals}
 
 \begin{figure}[htp]
 \centering
 
-%\subcaptionbox{Training Curve-Fitting}{\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-10agents-10rules-20ind-100gen_training_fit.pdf}}\quad
-%subcaptionbox{}{\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-10agents-10rules-20ind-100gen_training_profits.pdf}}
-
-\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-10agents-10rules-20ind-100gen_training_fit.pdf}\quad
-\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-10agents-10rules-20ind-100gen_training_profits.pdf}
+\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-4agents-4rules-4ind-100gen_training_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-4agents-4rules-4ind-100gen_training_profits.pdf}
 
 \medskip
 
-\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-10agents-10rules-20ind-100gen_testing_fit.pdf}\quad
-\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-10agents-10rules-20ind-100gen_testing_profits.pdf}
+\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-4agents-4rules-4ind-100gen_testing_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-4agents-4rules-4ind-100gen_testing_profits.pdf}
 
 \medskip
 
-\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-10agents-10rules-20ind-100gen_error_minimization.pdf}
+\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-4agents-4rules-4ind-100gen_error_minimization.pdf}
 
-\caption{Figure caption}
-\label{pics:blablabla}
+\caption{AUD/USD - 4 agents, 4 rules and 4 individuals}
+\label{pics:aud-usd-4agents-4rules-4individuals}
 \end{figure}
+
+\subsection{AUD/USD 10 Agents, 10 Rules, 10 Individuals}
+\label{results:forecast-aud-usd-10agents-10rules-10individuals}
+
+\begin{figure}[htp]
+\centering
+
+\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-10agents-10rules-10ind-100gen_training_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-10agents-10rules-10ind-100gen_training_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-10agents-10rules-10ind-100gen_testing_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-10agents-10rules-10ind-100gen_testing_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-10agents-10rules-10ind-100gen_error_minimization.pdf}
+
+\caption{AUD/USD - 10 agents, 10 rules and 10 individuals}
+\label{pics:aud-usd-10agents-10rules-10individuals}
+\end{figure}
+
+\subsection{AUD/USD 20 Agents, 20 Rules, 20 Individuals}
+\label{results:forecast-aud-usd-20agents-20rules-20individuals}
+
+\begin{figure}[htp]
+\centering
+
+\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-20agents-20rules-20ind-100gen_training_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-20agents-20rules-20ind-100gen_training_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-20agents-20rules-20ind-100gen_testing_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-20agents-20rules-20ind-100gen_testing_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/aud_usd_h1-20agents-20rules-20ind-100gen_error_minimization.pdf}
+
+\caption{AUD/USD - 20 agents, 20 rules and 20 individuals}
+\label{pics:aud-usd-20agents-20rules-20individuals}
+\end{figure}
+
+
+
+
+
+
+
+
+\subsection{EUR/GBP 4 Agents, 4 Rules, 4 Individuals}
+\label{results:forecast-eur-gbp-4agents-4rules-4individuals}
+
+\begin{figure}[htp]
+\centering
+
+\includegraphics[width=.45\textwidth]{img/plots/eur_gbp_h1-4agents-4rules-4ind-100gen_training_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/eur_gbp_h1-4agents-4rules-4ind-100gen_training_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/eur_gbp_h1-4agents-4rules-4ind-100gen_testing_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/eur_gbp_h1-4agents-4rules-4ind-100gen_testing_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/eur_gbp_h1-4agents-4rules-4ind-100gen_error_minimization.pdf}
+
+\caption{EUR/GBP - 4 agents, 4 rules and 4 individuals}
+\label{pics:eur-gbp-4agents-4rules-4individuals}
+\end{figure}
+
+\subsection{EUR/GBP 10 Agents, 10 Rules, 10 Individuals}
+\label{results:forecast-eur-gbp-10agents-10rules-10individuals}
+
+\begin{figure}[htp]
+\centering
+
+\includegraphics[width=.45\textwidth]{img/plots/eur_gbp_h1-10agents-10rules-10ind-100gen_training_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/eur_gbp_h1-10agents-10rules-10ind-100gen_training_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/eur_gbp_h1-10agents-10rules-10ind-100gen_testing_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/eur_gbp_h1-10agents-10rules-10ind-100gen_testing_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/eur_gbp_h1-10agents-10rules-10ind-100gen_error_minimization.pdf}
+
+\caption{EUR/GBP - 10 agents, 10 rules and 10 individuals}
+\label{pics:eur-gbp-10agents-10rules-10individuals}
+\end{figure}
+
+\subsection{EUR/GBP 20 Agents, 20 Rules, 20 Individuals}
+\label{results:forecast-eur-gbp-20agents-20rules-20individuals}
+
+\begin{figure}[htp]
+\centering
+
+\includegraphics[width=.45\textwidth]{img/plots/eur_gbp_h1-20agents-20rules-20ind-100gen_training_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/eur_gbp_h1-20agents-20rules-20ind-100gen_training_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/eur_gbp_h1-20agents-20rules-20ind-100gen_testing_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/eur_gbp_h1-20agents-20rules-20ind-100gen_testing_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/eur_gbp_h1-20agents-20rules-20ind-100gen_error_minimization.pdf}
+
+\caption{EUR/GBP - 20 agents, 20 rules and 20 individuals}
+\label{pics:eur-gbp-20agents-20rules-20individuals}
+\end{figure}
+
+
+
+
+
+
+\subsection{EUR/USD 4 Agents, 4 Rules, 4 Individuals}
+\label{results:forecast-eur-usd-4agents-4rules-4individuals}
+
+\begin{figure}[htp]
+\centering
+
+\includegraphics[width=.45\textwidth]{img/plots/eur_usd_h1-4agents-4rules-4ind-100gen_training_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/eur_usd_h1-4agents-4rules-4ind-100gen_training_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/eur_usd_h1-4agents-4rules-4ind-100gen_testing_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/eur_usd_h1-4agents-4rules-4ind-100gen_testing_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/eur_usd_h1-4agents-4rules-4ind-100gen_error_minimization.pdf}
+
+\caption{EUR/USD - 4 agents, 4 rules and 4 individuals}
+\label{pics:eur-usd-4agents-4rules-4individuals}
+\end{figure}
+
+\subsection{EUR/USD 10 Agents, 10 Rules, 10 Individuals}
+\label{results:forecast-eur-usd-10agents-10rules-10individuals}
+
+\begin{figure}[htp]
+\centering
+
+\includegraphics[width=.45\textwidth]{img/plots/eur_usd_h1-10agents-10rules-10ind-100gen_training_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/eur_usd_h1-10agents-10rules-10ind-100gen_training_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/eur_usd_h1-10agents-10rules-10ind-100gen_testing_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/eur_usd_h1-10agents-10rules-10ind-100gen_testing_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/eur_usd_h1-10agents-10rules-10ind-100gen_error_minimization.pdf}
+
+\caption{EUR/USD - 10 agents, 10 rules and 10 individuals}
+\label{pics:eur-usd-10agents-10rules-10individuals}
+\end{figure}
+
+\subsection{EUR/USD 20 Agents, 20 Rules, 20 Individuals}
+\label{results:forecast-eur-usd-20agents-20rules-20individuals}
+
+\begin{figure}[htp]
+\centering
+
+\includegraphics[width=.45\textwidth]{img/plots/eur_usd_h1-20agents-20rules-20ind-100gen_training_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/eur_usd_h1-20agents-20rules-20ind-100gen_training_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/eur_usd_h1-20agents-20rules-20ind-100gen_testing_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/eur_usd_h1-20agents-20rules-20ind-100gen_testing_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/eur_usd_h1-20agents-20rules-20ind-100gen_error_minimization.pdf}
+
+\caption{EUR/USD - 20 agents, 20 rules and 20 individuals}
+\label{pics:eur-usd-20agents-20rules-20individuals}
+\end{figure}
+
+
+
+
+
+
+\subsection{GBP/USD 4 Agents, 4 Rules, 4 Individuals}
+\label{results:forecast-gbp-usd-4agents-4rules-4individuals}
+
+\begin{figure}[htp]
+\centering
+
+\includegraphics[width=.45\textwidth]{img/plots/gbp_usd_h1-4agents-4rules-4ind-100gen_training_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/gbp_usd_h1-4agents-4rules-4ind-100gen_training_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/gbp_usd_h1-4agents-4rules-4ind-100gen_testing_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/gbp_usd_h1-4agents-4rules-4ind-100gen_testing_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/gbp_usd_h1-4agents-4rules-4ind-100gen_error_minimization.pdf}
+
+\caption{GBP/USD - 4 agents, 4 rules and 4 individuals}
+\label{pics:gbp-usd-4agents-4rules-4individuals}
+\end{figure}
+
+\subsection{GBP/USD 10 Agents, 10 Rules, 10 Individuals}
+\label{results:forecast-gbp-usd-10agents-10rules-10individuals}
+
+\begin{figure}[htp]
+\centering
+
+\includegraphics[width=.45\textwidth]{img/plots/gbp_usd_h1-10agents-10rules-10ind-100gen_training_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/gbp_usd_h1-10agents-10rules-10ind-100gen_training_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/gbp_usd_h1-10agents-10rules-10ind-100gen_testing_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/gbp_usd_h1-10agents-10rules-10ind-100gen_testing_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/gbp_usd_h1-10agents-10rules-10ind-100gen_error_minimization.pdf}
+
+\caption{GBP/USD - 10 agents, 10 rules and 10 individuals}
+\label{pics:gbp-usd-10agents-10rules-10individuals}
+\end{figure}
+
+\subsection{GBP/USD 20 Agents, 20 Rules, 20 Individuals}
+\label{results:forecast-gbp-usd-20agents-20rules-20individuals}
+
+\begin{figure}[htp]
+\centering
+
+\includegraphics[width=.45\textwidth]{img/plots/gbp_usd_h1-20agents-20rules-20ind-100gen_training_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/gbp_usd_h1-20agents-20rules-20ind-100gen_training_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/gbp_usd_h1-20agents-20rules-20ind-100gen_testing_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/gbp_usd_h1-20agents-20rules-20ind-100gen_testing_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/gbp_usd_h1-20agents-20rules-20ind-100gen_error_minimization.pdf}
+
+\caption{GBP/USD - 20 agents, 20 rules and 20 individuals}
+\label{pics:gbp-usd-20agents-20rules-20individuals}
+\end{figure}
+
+
+
+
+
+
+
+
+
+\subsection{USD/CAD 4 Agents, 4 Rules, 4 Individuals}
+\label{results:forecast-usd-cad-4agents-4rules-4individuals}
+
+\begin{figure}[htp]
+\centering
+
+\includegraphics[width=.45\textwidth]{img/plots/usd_cad_h1-4agents-4rules-4ind-100gen_training_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/usd_cad_h1-4agents-4rules-4ind-100gen_training_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/usd_cad_h1-4agents-4rules-4ind-100gen_testing_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/usd_cad_h1-4agents-4rules-4ind-100gen_testing_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/usd_cad_h1-4agents-4rules-4ind-100gen_error_minimization.pdf}
+
+\caption{USD/CAD - 4 agents, 4 rules and 4 individuals}
+\label{pics:usd-cad-4agents-4rules-4individuals}
+\end{figure}
+
+\subsection{USD/CAD 10 Agents, 10 Rules, 10 Individuals}
+\label{results:forecast-usd-cad-10agents-10rules-10individuals}
+
+\begin{figure}[htp]
+\centering
+
+\includegraphics[width=.45\textwidth]{img/plots/usd_cad_h1-10agents-10rules-10ind-100gen_training_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/usd_cad_h1-10agents-10rules-10ind-100gen_training_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/usd_cad_h1-10agents-10rules-10ind-100gen_testing_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/usd_cad_h1-10agents-10rules-10ind-100gen_testing_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/usd_cad_h1-10agents-10rules-10ind-100gen_error_minimization.pdf}
+
+\caption{USD/CAD - 10 agents, 10 rules and 10 individuals}
+\label{pics:usd-cad-10agents-10rules-10individuals}
+\end{figure}
+
+\subsection{USD/CAD 20 Agents, 20 Rules, 20 Individuals}
+\label{results:forecast-usd-cad-20agents-20rules-20individuals}
+
+\begin{figure}[htp]
+\centering
+
+\includegraphics[width=.45\textwidth]{img/plots/usd_cad_h1-20agents-20rules-20ind-100gen_training_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/usd_cad_h1-20agents-20rules-20ind-100gen_training_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/usd_cad_h1-20agents-20rules-20ind-100gen_testing_fit.pdf}\quad
+\includegraphics[width=.45\textwidth]{img/plots/usd_cad_h1-20agents-20rules-20ind-100gen_testing_profits.pdf}
+
+\medskip
+
+\includegraphics[width=.45\textwidth]{img/plots/usd_cad_h1-20agents-20rules-20ind-100gen_error_minimization.pdf}
+
+\caption{USD/CAD - 20 agents, 20 rules and 20 individuals}
+\label{pics:usd-cad-20agents-20rules-20individuals}
+\end{figure}
+
+
+
 
 \section{Extracting Insights about a Financial Market}
 \label{section:extracting-insights-about-a-financial-market}
