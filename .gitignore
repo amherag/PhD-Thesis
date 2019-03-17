@@ -3,7 +3,7 @@
 .#*
 results/
 data/
-plots/
+/plots/
 *.aux
 *.lof
 main.lot
