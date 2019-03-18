@@ -1,2 +1,66 @@
 \chapter{Conclusions and Future Work}
 \label{chapter:conclusions-and-future-work}
+
+The reader can find in the following Sections conclusions about the different
+parts that compose the proposed method in this thesis, about its implementation
+and about the results obtained in the experiments involving the implementation
+described in the document. Moreover, the second and last Section in this Chapter
+proposes a variety of works that can be done in the future in order to improve
+the proposed method and that can support the findings shown in the document.
+
+\section{Conclusions}
+\label{section:conclusions}
+
+This thesis work proposes a method for forecasting and interpreting financial
+markets. The method is moderately complex, which allows versatility in how the
+different composing parts can interact without losing a clear set of
+constraints. For instance, the proposed method forces the implementation of a
+preprocessing algorithm for the financial market price data, but the method is
+flexible enough to allow any preprocessing algorithm which give as a result a
+real number that can be fed to the agents' fuzzy systems. Furthermore, the fuzzy
+systems used to manage the agents' decisions can be changed to any rule-based
+system, or even any mapping algorithm that can determine a decision based on a
+set of inputs, such as a neural network -- although some systems could cause the
+proposed method to lose its interpretability.
+
+Alternatively, if the user decides to use the parts proposed, these parts are
+still customizable: the preprocessing algorithm can be configured to give as a
+result multiple price areas of different sizes, which can then be served as
+input to the intuitionistic fuzzy system, which can take virtually any number of
+inputs. The complexity of the intuitionistic fuzzy system can be adjusted by
+changing the type and number of membership functions and non-membersip
+functions. The defuzzification method for the intuitionistic fuzzy system can
+also be changed to other than the default centroid-based method. If the user
+desired, the intuitionistic fuzzy system could be reduced to a traditional fuzzy
+system by lowering the hesitancy in the membership functions to 0.
+
+The proposed method was only tested with five financial markets in Chapter
+\ref{chapter:experiments-and-results}, but the system should be able to adapt to
+any kind of financial market, or even time series that do not represent
+financial markets, provided that the preprocessing algorithm is meaningful for
+the dataset's nature.
+
+The optimization of the proposed method can be performed using a variety of
+algorithms. At certain points during the development of the thesis, particle
+swarm optimization and differential evolution were considered to be used as the
+optimization algorithms for the proposed method, but the use of a genetic
+algorithm was preferred due to its simplicity. Furthermore, the fuzzy systems
+could be manually adjusted in order to prove particular hypotheses about a
+financial market's behavior due to its human-readable representation.
+
+The implementation and its experiments described in Chapters
+\ref{chapter:implementation} and \ref{chapter:experiments-and-results},
+respectively, demonstrate how the system can be adjusted in order to obtain
+systems that vary in their generalization capabilities. A low number of
+agents with low number of rules could not simulate a good representation of the
+real market prices; high number of agents with high number of rules sometimes
+performed well and sometimes performed poorly due to the relatively low number
+of generations that was set for the genetic algorithm; and most of the times,
+the models with a moderate number of agents and rules were able to generalize
+the markets behaviors. These Chapters also demonstrate how the generated models
+can be used to interpret the nature of the markets, although the interpretations
+presented in the experiments lack some robustness and their redaction could be
+improved.
+
+\section{Future Work}
+\label{section:future-work}
