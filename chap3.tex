@@ -1,28 +1,28 @@
 \chapter{Related Work}
 \label{chapter:related-work}
 
-% Amaury: Write an introduction to the chapter
+This Chapter focuses on providing a series of works that can help the reader
+understand what's the current state of the art regarding the different parts
+that compose the proposed method presented in Chapter
+\ref{chapter:proposed-method}, as well as works that are similar in purpose or
+architecture.
 
 \section{Financial Forecasting}
 \label{section:financial-forecasting}
 
-% Amaury: Rewrite
-
-In general, this work involves the use of machine learning to forecast financial
-markets. In several efforts, researchers create regression models using
+%% curve-fitting
+In several efforts, researchers create regression models using
 technical or fundamental indicators as training datasets. Examples of regression
 techniques are autoregression \cite{burg1968new}, symbolic regression
 \cite{billard2002symbolic}, and linear regression \cite{kutner2004applied}.
 
+
+%% market interpretability
 The work by Brown, Pelosi and Dirska \cite{brown2013dynamic} uses a Niche
 Genetic Algorithm called Dynamic-radius Species-conserving Genetic Algorithm
-(DSGA) to select stocks to purchase from the Dow Jones Index. It is important to
-mention this work because, in the end, the DSS that is presented in the Proposed
-Method does the same kind of recommendation as in their work. More importantly,
-Brown, et al., uploaded the dataset that the authors of the present work used to
-perform the different experiments. In Section \ref{experiments-and-results} a
-comparison to their work is provided, along with many other experiments.
+(DSGA) to select stocks to purchase from the Dow Jones Index.
 
+%% preprocessing
 The work by Lu, Lee, and Chiu \cite{Lu2009} point out the complexity of
 financial time-series. They note its noisy nature and propose a technique to
 reduce this noise based in a two-stage modeling approach using Independent
@@ -30,11 +30,10 @@ Component Analysis (ICA) and Support Vector Regression (SVR). Their approach
 first uses ICA for generating independent components to identify and remove
 those containing the noise, then the remaining components are used to
 reconstruct the forecasting variables which now contain less noise and are the
-input of the SVR forecasting model. Their work was important for the development
-of the Proposed Method, as we believe that the ABM approach can then be used to
-diminish the noise in the market, by using a separate class of agents dedicated
-to model it.
+input of the SVR forecasting model.
 
+
+%% neural networks
 Lastly, it is imperative to mention the use of Neural Networks in regression
 tasks, as it is a technique that has been proved to be very effective for this
 kind of problems. O'Connor and Madden \cite{Connor2005} obtained some remarkable
@@ -44,16 +43,22 @@ Melin \cite{castillo2001simulation}, where they compare different hybrid
 architectures that combine Neural Networks and Fuzzy Logic for the prediction of
 financial time-series.
 
+\section{Interpretation of Financial Markets}
+\label{section:interpretation-of-financial-markets}
+
+\subsection{Technical Analysis}
+\label{section:technical-analysis}
+
+\section{Preprocessing of Financial Market Data}
+\label{section:preprocessing-of-financial-market-data}
+
 \section{Multi-agent Systems}
 \label{section:multi-agent-systems}
 
-% Amaury: Rewrite
-
 The core algorithm of the proposed method is, at its highest level, a
-Multi-agent System. It is therefore paramount to mention some works which use
-MAS for the forecast or understanding of financial markets.
+multi-agent system.
 
-Klingert and Meyer \cite{Klingert_2012} implement a MAS to analyze the effect of
+Klingert and Meyer \cite{Klingert_2012} implement a multi-agent system to analyze the effect of
 two market mechanisms: the continuous double auction and logarithmic market
 scoring rule. The purpose of the agent-based simulation model is to see the
 effect on the number of trades, the accuracy of prediction markets and the
@@ -64,19 +69,19 @@ scoring rule seems to have an advantage over the other mechanism.
 
 Sherstov and Stone \cite{Sherstov2005} present three automated stock-trading
 agents which follow different strategies to predict financial markets, and are
-compared. The first agent uses Reinforcement Learning, the second a
-Trend-following strategy, and the last one Market-making. These agents are part
-of a MAS where the better performing agent is chosen for the testing phase. It
-is noteworthy to mention that their strategy was used in a live competition and
-won.
+compared. The first agent uses reinforcement learning, the second a
+trend-following strategy, and the last one market-making. These agents are part
+of a multi-agent system where the better performing agent is chosen for the testing phase.
 
-Kendall and Su \cite{Kendall2003} use a MAS to simulate stock markets within
+Kendall and Su \cite{Kendall2003} use a multi-agent system to simulate stock markets within
 which stock traders are modeled as heterogeneous adaptive artificial agents. On
 average, 80\% of the artificial stock traders were able to trade using
 successful trading strategies which brings the investors higher returns compared
 to a simple buy-and-hold strategy.
 
-The authors of this work gained useful knowledge about MAS from two theses. The
+
+%% also mention Shoham's
+The authors of this work gained useful knowledge about multi-agent system from two theses. The
 first one is the work from Grothmann \cite{Grothmann2002}, ``Multi-agent Market
 Modeling based on Neural Networks.'' This work served as inspiration for the
 architecture of the Proposed Method. The second thesis is Boer-Sorb{\'{a}}n's
@@ -89,17 +94,8 @@ As a final mention, Samanidou, et. al. \cite{Samanidou_2007}, provides the
 reader a very comprehensive overview of Agent-based Modeling, where different
 techniques to perform this kind of models are discussed.
 
-\section{Genetic Algorithms}
-\label{section:genetic-algorithms}
-
-% Amaury: Rewrite
-
-In the Proposed Method, Genetic Programming is used to generate the Membership
-Functions (MF) of the Fuzzy Inference Systems that act as the agents'
-functions. The use of Evolutionary Algorithms to generate MF has been proposed
-before in several works. What follows is the mention of two works which use
-Genetic Algorithms to perform such a task, and in the next Subsection, one can
-find more specialized works where Genetic Programming is used.
+\section{Optimization Algorithms}
+\label{section:optimization-algorithms}
 
 Thrift \cite{Thrift1991} explores a nowadays widely used technique which
 involves the use of a Genetic Algorithm (GA) to discover the parameters of the
@@ -107,14 +103,14 @@ Membership Functions (MF) in a Fuzzy Inference System to obtain a better
 performance. Homaifar and McCormick \cite{Homaifar1995} go further and use GA to
 simultaneously design the MF and the rule sets for fuzzy logic controllers.
 
+\section{Fuzzy Systems}
+\label{section:fuzzy-systems}
+
+\section{Type-2 Fuzzy Systems}
+\label{section:type-2-fuzzy-systems}
+
 \section{Intuitionistic Fuzzy Systems}
 \label{section:related-work-intuitionistic-fuzzy-systems}
-
-% Amaury: Rewrite
-
-There are some noteworthy toolkits for the creation of FISs, and this Section
-gives a brief description of the ones that have had the strongest influence to
-the present work.
 
 Wagner presents a robust implementation of FISs developed in Java in
 \cite{Wagner2013}. The authors of the present work have used this particular
@@ -125,7 +121,7 @@ for representing a FIS graphically or for interacting with one, the
 implementation provides libraries for building type-1, interval type-2, and
 generalized type-2 fuzzy systems.
 
-Moreover, the work by Castro et al. \cite{castro2007interval} provides the same
+The work by Castro et al. \cite{castro2007interval} provides similar
 capabilities as the work by Wagner, but in this case it is an implementation in
 Matlab. A direct disadvantage of using this programming language is that Matlab
 is not a free nor open source software.  Nevertheless, the language is still
@@ -134,9 +130,7 @@ follows an interface similar to the one provided by Matlab's fuzzy logic
 toolbox, and provides more robust graphical implementations than the current
 version of Wagner's toolkit.
 
-The authors of the present paper have worked in a particular way of achieving
-this type of systems, and the method is described in \cite{Hernandez-Aguila2016}
-and \cite{Hernandez-Aguila2017-2}.
+% mention my works, the proposal and the implementation
 
 \subsection{Membership and Non-Membership Functions Design}
 \label{subsection:related-work-membership-and-non-membership-functions-design}
