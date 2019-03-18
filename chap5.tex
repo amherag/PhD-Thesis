@@ -284,4 +284,9 @@ recombined with another, a copy of this individual is made and is added to the
 population. This is done with the goal of achieving elitism in the evolutionary
 process. In order to preserve the size of the population across all the
 generations, when the best individual is copied onto the next generation, the
-worst individual from the population is discarded.
+worst individual from the population is discarded. However, after analyzing the
+experiments provided in Chapter \ref{chapter:experiments-and-results}, it was
+seen that the evolutionary process was not elitist. The reason was later found
+to be the order in which the mutation process is performed; once the best
+individual is copied onto the next generation's population, the mutation process
+is performed.
