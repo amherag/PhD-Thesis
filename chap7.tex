@@ -64,3 +64,37 @@ improved.
 
 \section{Future Work}
 \label{section:future-work}
+
+The conclusions provided in the last Section give a notion about the
+different directions the proposed method could take in the future. For instance,
+the preprocessing algorithm can be configured to provide a greater number of
+inputs to the agents' rule systems; the list of beliefs could be extended in
+order to increase the number of ways an agent can perceive a market; the range
+of the possible belief values could be modified; the size of the resulting price
+areas can be changed; the way the weight for the resulting areas is determined
+could be changed to, for example, one that incorporates a way to represent
+degradation according to time of the price that generated certain retracements,
+i.e. associate lesser weights to older price retracements. Additionally, the
+preprocessing algorithm could be changed completely.
+
+It was considered to provide a comparison between the use of intuitionistic
+fuzzy systems and traditional type-1 fuzzy systems for the agents' rule
+systems. This can be done in a future work. All the fuzzy systems in the
+proposed method are limited to the use of Gaussian membership and non-membership
+functions; combinations of different types of functions could be tested to see
+if the performance and interpretability of the system improve.
+
+The optimization algorithm used in the proposed method is another factor that
+can be studied in future works. A current limitation of the genetic algorithm is
+that it is limited to the initial population's genes, plus some mutations
+occurring from time to time. Perhaps meta-heuristics that are suited to handle
+continuous search spaces would be better suited for the optimization of the
+agent-based models.
+
+Lastly, even though a sufficiently large number of experiments were performed in
+order to not be able to include all of them in the thesis document, more
+experiments still need to be performed to further support the capacities of the
+method. Particularly, the number of generations used for the genetic algorithm
+is considerably low. Experiments where greater numbers of generations for a
+genetic algorithm or any other meta-heuristic should yield far better results
+than the ones presented in this document.
