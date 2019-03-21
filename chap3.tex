@@ -1,6 +1,57 @@
 \chapter{Related Work}
 \label{chapter:related-work}
 
+%% \cite{Kadiri2015} importance of technical analysis. questionnaire and an
+%% interview survey to traders perceived importance of chartist/technical
+%% interpretation, technical analysis is as used as fundamental, the shorter the
+%% forecasting horizon, the more important technical analysis is. chartism may have
+%% increased over the last decade. psychological motives by using chartism
+
+%% Taylor, Mark and Allen, Helen \cite{Fund1992} technical analysis
+%% importance. questionnaire survey. at least 90 per cent of respondents place some
+%% weight on this form of non-fundamental analysis when forming views at one or
+%% more time horizons. tech and fund are complementary. tech may be
+%% sulf-fulfilling.
+
+%% it could be a self-fulfilling prophecy
+%% \cite{Salganik2008} self-fulfilling prophecy. false-popularity became real over
+%% time (songs). the real songs recovered their popularity in the long run.
+
+%% we can use tech ind to curve-fitting to forecast
+%% In several efforts, researchers create regression models using technical or
+%% fundamental indicators as training datasets. Examples of regression techniques
+%% are autoregression \cite{burg1968new}, symbolic regression
+%% \cite{billard2002symbolic}, and linear regression \cite{kutner2004applied}.
+
+%% we can use tech ind to interpret the market
+%% \cite{Ijegwa2014} interpretation. decisions. fuzzy inference to stock market,
+%% using four indicators. deal with probability. The four technical indicators are
+%% the Moving Average Convergence/Divergence (MACD), Relative Strength Index (RSI),
+%% Stochastic Oscillator (SO) and On-Balance Volume (OBV). Fuzzy manually
+%% designed. The result is a recommendation to buy, sell or hold. Data two nigerian
+%% banks. Two months of data.
+
+%% other techniques to forecast
+%% \cite{Cai2013} forecast. fuzzy time series and genetic algorithm. uses GA to
+%% optimize. TAIEX is used as data set. they get a low error.
+
+%% a popular choice is neural networks
+%% \cite{Castillo2001} neural networks for simulating and predicting financial
+%% markets. comparison against fuzzy logic models and against statistical
+%% model. tomato and green onion markets in the us.
+
+%% \cite{melin2007hybrid} neural network simulate and predict financial
+%% market. it's the same as Castillo2001.
+
+%% \cite{Connor2005} uses neural network. using external indicators (commodity
+%% prices exchange rates) in predictinng dow jones.
+
+%% one last choice is multi-agents
+%% \cite{Gamil2007} multi-agent, fuzzy logic decision support system. stock
+%% market. help to take the correct buy/sell/hold decisions. fuzzy tuning
+%% methodology used to enhance the accuracy of the decisions. genetic algorithm to
+%% optimize. NASDAQ dataset.
+
 This Chapter focuses on showcasing a series of works that should help the reader
 understand what is the state of the different parts that compose the proposed
 method presented in Chapter \ref{chapter:proposed-method}.
@@ -8,73 +59,72 @@ method presented in Chapter \ref{chapter:proposed-method}.
 \section{Financial Forecasting}
 \label{section:financial-forecasting}
 
-%% simplest is tech analysis
-\cite{Achelis2000} general theory about technical analysis.
+Determining if a financial market should be traded is a process that can be
+approached in different ways. For example, a straightforward method is to
+analyze the financial health of a company to infer if it would be a good idea to
+buy stock from it. This approach is known as fundamental analysis
+\cite{Martinez-Jaramillo2009} and it is often contrasted to technical analysis,
+which focuses on the analysis of historical prices of a financial market to
+arrive at such inferences. Technical analysis involves any process that uses as
+input the market prices and the output can usually be plotted along with the
+market prices \cite{Achelis2000}. These processes are known as technical
+indicators, which often focus on providing the chartist with information about a
+market that would be difficult to infer by only looking at the raw price data.
 
-\cite{Kadiri2015} importance of technical analysis. questionnaire and an interview survey to traders perceived
-importance of chartist/technical interpretation, technical analysis is as used
-as fundamental, the shorter the forecasting horizon, the more important
-technical analysis is. chartism may have increased over the last
-decade. psychological motives by using chartism
+Although some studies have suggested that technical analysis works because it is
+``self-fulfilling prophecy'' \cite{Salganik2008} \cite{Fund1992}, other studies
+also suggest that its usefulness in market forecasting is important
+\cite{Kadiri2015} \cite{Fund1992}.
 
-Taylor, Mark and Allen, Helen \cite{Fund1992} technical analysis
-importance. questionnaire survey. at least 90 per cent of respondents place some
-weight on this form of non-fundamental analysis when forming views at one or
-more time horizons. tech and fund are complementary. tech may be sulf-fulfilling.
+This thesis suggests that a financial market's data should be preprocessed
+before being used as input for a modelling algorithm. The preprocessing
+algorithm showcased in the proposed method is very similar in nature to what a
+technical indicator is. Furthermore, the preprocessing algorithm is based on the
+idea of an existing technical indicator known as Fibonacci retracements. It can
+also be noted that the preprocessing algorithm presented in this thesis shares
+some similarity to fuzzy time series \cite{Cai2013}, as the price areas that it
+outputs can be seen as price levels associated with a level of uncertainty.
 
-%% it could be a self-fulfilling prophecy
-\cite{Salganik2008} self-fulfilling prophecy. false-popularity became real over time (songs). the
-real songs recovered their popularity in the long run.
+Technical indicators can be used to forecast a market's prices, such as in the
+case of candlestick patterns \cite{Nison1991} or linear regression
+\cite{kutner2004applied} which, although it is used in other contexts involving
+time series, could be considered a technical indicator if used to forecast a
+financial market. One can add an extra layer in the forecasting process and use
+the outputs from the technical indicators as inputs to another algorithm. For
+example, Ijegwa et al. \cite{Ijegwa2014} use four technical indicators as the
+inputs for a fuzzy system that estimates the probability of a market's price
+going up or down. This approach is similar to the one proposed in this thesis,
+as the preprocessing algorithm is based on a technical indicator and it is used
+as input for fuzzy systems that function as the rule systems for the agents in a
+multi-agent system.
 
-%% we can use tech ind to curve-fitting to forecast
-In several efforts, researchers create regression models using technical or
-fundamental indicators as training datasets. Examples of regression techniques
-are autoregression \cite{burg1968new}, symbolic regression
-\cite{billard2002symbolic}, and linear regression \cite{kutner2004applied}.
-
-%% we can use tech ind to interpret the market
-\cite{Ijegwa2014} interpretation. decisions. fuzzy inference to stock market, using four
-indicators. deal with probability. The four technical indicators are the
-Moving Average Convergence/Divergence (MACD), Relative Strength Index (RSI),
-Stochastic Oscillator (SO) and On-Balance Volume (OBV). Fuzzy manually
-designed. The result is a recommendation to buy, sell or hold. Data two nigerian
-banks. Two months of data.
-
-%% other technicques to forecast
-\cite{Cai2013} forecast. fuzzy time series and genetic algorithm. uses GA to optimize. TAIEX is used as
-data set. they get a low error.
-
-%% a popular choice is neural networks
-\cite{Castillo2001} neural networks for simulating and predicting financial markets. comparison
-against fuzzy logic models and against statistical model. tomato and green onion
-markets in the us.
-
-\cite{melin2007hybrid} neural network simulate and predict financial
-market. it's the same as Castillo2001.
-
-\cite{Connor2005} uses neural network. using external indicators (commodity
-prices exchange rates) in predictinng dow jones.
-
-Lastly, it is imperative to mention the use of Neural Networks in regression
-tasks, as it is a technique that has been proved to be very effective for this
-kind of problems. O'Connor and Madden \cite{Connor2005} obtained some remarkable
-results where they obtained an annual 23.5\% of Rate of Investment on Dow Jones
-data used for training and testing. Another example is given by Castillo and
-Melin \cite{castillo2001simulation}, where they compare different hybrid
-architectures that combine Neural Networks and Fuzzy Logic for the prediction of
-financial time-series.
-
-%% one last choise is multi-agents
-\cite{Gamil2007} multi-agent, fuzzy logic decision support system. stock market. help to take the
-correct buy/sell/hold decisions. fuzzy tuning methodology used to enhance the
-accuracy of the decisions. genetic algorithm to optimize. NASDAQ dataset.
+Arguably one of the most common methods used to forecast financial markets is
+neural networks. For example, Castillo and Melin \cite{Castillo2001}
+\cite{melin2007hybrid} use neural networks to forecast the prices of tomato and
+green onion markets in the United States. One can also combine the idea of
+preprocessing a market's prices using technical indicators and then use these
+outputs as the inputs for a neural network, as in the work by O'Connor
+\cite{Connor2005}. Neural networks were the first candidate for modelling the
+agents' rules in the proposed method, as it is a common technique as described
+in \cite{Grothmann2002}, but the use of fuzzy systems for this purpose seemed as
+a better approach by the author of this thesis, as fuzzy systems are more
+interpretable than the models generated by neural networks. As an example of a
+similar approach to the aforementioned one, Gamil et al. \cite{Gamil2007} create
+a multi-agent system that is tuned using a fuzzy system in order to create a
+simulation of the NASDAQ index.
 
 \section{Interpretation of Financial Markets}
 \label{section:interpretation-of-financial-markets}
 
+Technical indicators can be used to interpret the price data of financial
+markets. For example, Wilder's Parabolic SAR can be used to determine if a
+market has shifted its trend \cite{Wilder1978}. In the case of the proposed
+method's preprocessing algorithm, its plots can be used to determine possible
+price stagnation or bouncing areas.
+
 %% market interpretability help choosing stocks
-\cite{Brown2013} interpretation. niche genetic algorithm to select stocks from dow jones. uses
-another algorithm to forecast markets. then chooses the best.
+\cite{Brown2013} interpretation. niche genetic algorithm to select stocks from
+dow jones. uses another algorithm to forecast markets. then chooses the best.
 
 The work by Brown, Pelosi and Dirska uses a Niche Genetic Algorithm called
 Dynamic-radius Species-conserving Genetic Algorithm (DSGA) to select stocks to
@@ -87,22 +137,23 @@ purchase from the Dow Jones Index.
 \cite{Tsang2004} interpretability. Evolutionary Dynamic Data Investment
 Evaluator (EDDIE) is a genetic programming (GP)-based decision support tool for
 financial forecasting. It serves to improve the productivity of experts in
-searching the space of decision trees, with the aim to improve the odds in its user’s favour.
+searching the space of decision trees, with the aim to improve the odds in its
+user’s favour.
 
-\cite{tsang1998eddie} EDDIE has been applied to horse racing and achieved outstanding
-results. When experimented on 180 handicap races (real data) in the UK, it
-out-performed other common strategies. The idea was then extended to financial forecasting. When tested on
-historical S&P-500 data EDDIE achieved a respectable annual rate of return over
-a three and a half year period.
+\cite{tsang1998eddie} EDDIE has been applied to horse racing and achieved
+outstanding results. When experimented on 180 handicap races (real data) in the
+UK, it out-performed other common strategies. The idea was then extended to
+financial forecasting. When tested on historical S&P-500 data EDDIE achieved a
+respectable annual rate of return over a three and a half year period.
 
 %% further studies about DSS
-\cite{Sprague1980} DSS. examines people using it, the roles and types of people using the
-DSS. outlines issues in their use.
+\cite{Sprague1980} DSS. examines people using it, the roles and types of people
+using the DSS. outlines issues in their use.
 
 %% we can use tech ind to interpret the market
-\cite{Ijegwa2014} interpretation. decisions. fuzzy inference to stock market, using four
-indicators. deal with probability. The four technical indicators are the
-Moving Average Convergence/Divergence (MACD), Relative Strength Index (RSI),
+\cite{Ijegwa2014} interpretation. decisions. fuzzy inference to stock market,
+using four indicators. deal with probability. The four technical indicators are
+the Moving Average Convergence/Divergence (MACD), Relative Strength Index (RSI),
 Stochastic Oscillator (SO) and On-Balance Volume (OBV). Fuzzy manually
 designed. The result is a recommendation to buy, sell or hold. Data two nigerian
 banks. Two months of data.
@@ -114,21 +165,23 @@ banks. Two months of data.
 \cite{Wilder1978} theory about his technical indicators.
 
 %% how volume can be used to interpret the market
-\cite{Blume1994} agents learning process. technical analysis. investigate the informational role
-of volume and its applicability for technical analysis. traders receive signals
-with differing quality. We show how volume, information precision, and price
-movements relate, and demonstrate how sequences of volume and prices can be
-informative.
+\cite{Blume1994} agents learning process. technical analysis. investigate the
+informational role of volume and its applicability for technical
+analysis. traders receive signals with differing quality. We show how volume,
+information precision, and price movements relate, and demonstrate how sequences
+of volume and prices can be informative.
 
 %% automatic pattern finding
-\cite{Lo2000} technical analysis. automatic approach to technical pattern recognition using
-kernel regression. u.s. stocks to evaluate the effectiviness of tech
-analysis. they do provide incremental information and may have some practical value.
+\cite{Lo2000} technical analysis. automatic approach to technical pattern
+recognition using kernel regression. u.s. stocks to evaluate the effectiviness
+of tech analysis. they do provide incremental information and may have some
+practical value.
 
 %% finding tech rules
-\cite{Neely1997} genetic programming to find technical trading rules. Bootstrapping
-results on the dollar/Deutsche mark indicate that the trading rules detect
-patterns in the data that are not captured by standard statistical models.
+\cite{Neely1997} genetic programming to find technical trading
+rules. Bootstrapping results on the dollar/Deutsche mark indicate that the
+trading rules detect patterns in the data that are not captured by standard
+statistical models.
 
 %% tech analysis can be used to reduce noise. here's another work:
 The work by Lu, Lee, and Chiu \cite{Lu2009} point out the complexity of
@@ -145,8 +198,8 @@ input of the SVR forecasting model.
 % agents can also be used to generate interpretations
 % basic concepts
 \cite{Grothmann2002} general theory about multi agent systems in market
-modelling using neural networks.
-\cite{Lebaron2001} a builder's guide to agent based financial markets.
+modelling using neural networks.  \cite{Lebaron2001} a builder's guide to agent
+based financial markets.
 
 As a final mention, Samanidou, et. al. \cite{Samanidou_2007}, provides the
 reader a very comprehensive overview of Agent-based Modeling, where different
@@ -156,8 +209,8 @@ The authors of this work gained useful knowledge about multi-agent system from
 two theses. The first one is the work from Grothmann \cite{Grothmann2002},
 ``Multi-agent Market Modeling based on Neural Networks.'' This work served as
 inspiration for the architecture of the Proposed Method. The second thesis is
-\cite{Boer-Sorban2008}'s ``Agent-Based Simulation of Financial Markets,'' which gave
-an overview of approaches to describe and understand financial market's
+\cite{Boer-Sorban2008}'s ``Agent-Based Simulation of Financial Markets,'' which
+gave an overview of approaches to describe and understand financial market's
 dynamics, and motivated the authors of this work to use the approach of
 Agent-based Computation to perform financial forecast.
 
@@ -165,8 +218,8 @@ Agent-based Computation to perform financial forecast.
 \cite{Shoham2009} I use this architecture.
 
 %% some microscopic models
-\cite{Bundesbank2007} agents. several microscopic (“agent-based”) models
-of financial markets which have been studied by economists and physi- cists over
+\cite{Bundesbank2007} agents. several microscopic (“agent-based”) models of
+financial markets which have been studied by economists and physi- cists over
 the last decade: Kim-Markowitz, Levy-Levy-Solomon, Cont- Bouchaud,
 Solomon-Weisbuch, Lux-Marchesi, Donangelo-Sneppen and Solomon-Levy-Huang. aim is
 to reproduce (and, thereby, provide possible explana- tions) for the bubbles and
@@ -195,8 +248,8 @@ GP. connect search density to psychological factors such as peer pressure.
 \label{section:evolutionary-algorithms}
 
 %% different evolutionary algorithms
-\cite{Back2008} compared in this article: evolution strategies (ESs), evolutionary
-programming (EP), and genetic algorithms (GAs).
+\cite{Back2008} compared in this article: evolution strategies (ESs),
+evolutionary programming (EP), and genetic algorithms (GAs).
 
 %% variations of GA
 \cite{Harik1999} — a custom. compact genetic algorithm. It processes each gene
@@ -216,8 +269,9 @@ simultaneously design the MF and the rule sets for fuzzy logic controllers.
 
 %% basic concepts about GA and variations.
 %% finish stating we use this
-\cite{Whitley1994} tutorial for genetic algorithm, parallel island models, parallel cellular
-genetic algorithms. theoretical foundations of genetic algorithms.
+\cite{Whitley1994} tutorial for genetic algorithm, parallel island models,
+parallel cellular genetic algorithms. theoretical foundations of genetic
+algorithms.
 
 \section{Fuzzy Systems}
 \label{section:fuzzy-systems}
@@ -230,18 +284,16 @@ genetic algorithms. theoretical foundations of genetic algorithms.
 
 % comparison against type-2
 
-\cite{Mendel2002} Type-2 introduction
-\cite{Mendel2006} type-2 interval theory
-\cite{Liang2000} Type-2 interval theory
-\cite{Karnik2001} Centroid of a type-2 fuzzy set.
+\cite{Mendel2002} Type-2 introduction \cite{Mendel2006} type-2 interval theory
+\cite{Liang2000} Type-2 interval theory \cite{Karnik2001} Centroid of a type-2
+fuzzy set.
 
-\cite{Pedrycz1998} shadowed sets. enhancing interpretation of results
-obtained therein. it is demonstrated how fuzzy
-sets can induce shadowed sets.
+\cite{Pedrycz1998} shadowed sets. enhancing interpretation of results obtained
+therein. it is demonstrated how fuzzy sets can induce shadowed sets.
 
 %% ifis
-\cite{Atanassov1986} intuitionistic fuzzy sets paper.
-\cite{Atanassov2003} Intuitionistic fuzzy sets: past, present and future.
+\cite{Atanassov1986} intuitionistic fuzzy sets paper.  \cite{Atanassov2003}
+Intuitionistic fuzzy sets: past, present and future.
 
 
 %% implementations
@@ -268,8 +320,8 @@ version of Wagner's toolkit.
 
 \cite{castro2007interval} Ramon toolbox.
 
-\cite{Hernandez-aguila2016} My Proposal
-\cite{Hernandez-Aguila2017} My Implementation
+\cite{Hernandez-aguila2016} My Proposal \cite{Hernandez-Aguila2017} My
+Implementation
 
 % mention my works, the proposal and the implementation
 
