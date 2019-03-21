@@ -164,6 +164,32 @@
 %% agents. consideration trader's search behavior. evolve population using
 %% GP. connect search density to psychological factors such as peer pressure.
 
+%% different evolutionary algorithms
+%% \cite{Back2008} compared in this article: evolution strategies (ESs),
+%% evolutionary programming (EP), and genetic algorithms (GAs).
+
+%% variations of GA
+%% \cite{Harik1999} — a custom. compact genetic algorithm. It processes each gene
+%% independently and requires less memory than the simple GA. efficiency.
+
+%% alternatives considered
+%% \cite{Eberhart2002} pso first paper.
+
+%% \cite{Price1997} Differential evolution paper.
+
+%% practical example
+%% Thrift \cite{Thrift1991} explores a nowadays widely used technique which
+%% involves the use of a Genetic Algorithm (GA) to discover the parameters of the
+%% Membership Functions (MF) in a Fuzzy Inference System to obtain a better
+%% performance. Homaifar and McCormick \cite{Homaifar1995} go further and use GA to
+%% simultaneously design the MF and the rule sets for fuzzy logic controllers.
+
+%% basic concepts about GA and variations.
+%% finish stating we use this
+%% \cite{Whitley1994} tutorial for genetic algorithm, parallel island models,
+%% parallel cellular genetic algorithms. theoretical foundations of genetic
+%% algorithms.
+
 This Chapter focuses on showcasing a series of works that should help the reader
 understand what is the state of the different parts that compose the proposed
 method presented in Chapter \ref{chapter:proposed-method}.
@@ -296,31 +322,26 @@ these behaviors to psychological factors such as peer pressure.
 \section{Evolutionary Algorithms}
 \label{section:evolutionary-algorithms}
 
-%% different evolutionary algorithms
-\cite{Back2008} compared in this article: evolution strategies (ESs),
-evolutionary programming (EP), and genetic algorithms (GAs).
+Different evolutionary algorithms were considered for the optimization stage of
+the proposed method. Eberhart and Kennedy \cite{Eberhart2002} and Price and
+Storn \cite{Price1997} describe the two principal alternatives that were
+considered: particle swarm optimization and differential evolution. These
+algorithms were considered because of their capabilities to find optimal
+solutions in a continuous search space, while a genetic algorithm -- the
+solution that was selected in the end -- can only handle discrete search
+spaces. The reader can refer to the work by Back and Shwefel \cite{Back2008} and
+Whitley \cite{Whitley1994} for a comparison among some interesting alternatives
+that can be used in the proposed method instead of genetic algorithms. In
+particular, a next step for the proposed method could be to upgrade its current
+genetic algorithm to a variation of it, such as the compact genetic algorithm
+proposed by Harik \cite{Harik1999}, which uses less computational resources than
+a traditional genetic algorithm and is more efficient in its evaluations.
 
-%% variations of GA
-\cite{Harik1999} — a custom. compact genetic algorithm. It processes each gene
-independently and requires less memory than the simple GA. efficiency.
-
-%% alternatives considered
-\cite{Eberhart2002} pso first paper.
-
-\cite{Price1997} Differential evolution paper.
-
-%% practical example
-Thrift \cite{Thrift1991} explores a nowadays widely used technique which
-involves the use of a Genetic Algorithm (GA) to discover the parameters of the
-Membership Functions (MF) in a Fuzzy Inference System to obtain a better
-performance. Homaifar and McCormick \cite{Homaifar1995} go further and use GA to
-simultaneously design the MF and the rule sets for fuzzy logic controllers.
-
-%% basic concepts about GA and variations.
-%% finish stating we use this
-\cite{Whitley1994} tutorial for genetic algorithm, parallel island models,
-parallel cellular genetic algorithms. theoretical foundations of genetic
-algorithms.
+Fuzzy systems optimization using evolutionary algorithms can be regarded as
+common practice. Some notable examples of this are the works by Thrift
+\cite{Thrift1991} and Homaifar and McCormick \cite{Homaifar19995}, which use
+genetic algorithms to find optimal combinations of parameters for the membership
+functions in fuzzy systems.
 
 \section{Fuzzy Systems}
 \label{section:fuzzy-systems}
