@@ -190,6 +190,35 @@
 %% parallel cellular genetic algorithms. theoretical foundations of genetic
 %% algorithms.
 
+%% \cite{Zadeh1965} zadeh fuzzy sets.
+
+%% \cite{Mamdani1975} Mamdani paper.
+
+%% \cite{Takagi1985} Sugeno paper.
+
+% comparison against type-2
+
+%% \cite{Mendel2002} Type-2 introduction \cite{Mendel2006} type-2 interval theory
+%% \cite{Liang2000} Type-2 interval theory \cite{Karnik2001} Centroid of a type-2
+%% fuzzy set.
+
+%% ifis
+%% \cite{Atanassov1986} intuitionistic fuzzy sets paper.  \cite{Atanassov2003}
+%% Intuitionistic fuzzy sets: past, present and future.
+
+%% \cite{Pedrycz1998} shadowed sets. enhancing interpretation of results obtained
+%% therein. it is demonstrated how fuzzy sets can induce shadowed sets.
+
+% fuzzy software
+%% \cite{Wagner2013} java based type-2.
+
+%% \cite{castro2007interval} Ramon toolbox.
+
+%% \cite{Hernandez-aguila2016} My Proposal \cite{Hernandez-Aguila2017} My
+%% Implementation
+
+% mention my works, the proposal and the implementation
+
 This Chapter focuses on showcasing a series of works that should help the reader
 understand what is the state of the different parts that compose the proposed
 method presented in Chapter \ref{chapter:proposed-method}.
@@ -262,10 +291,10 @@ price stagnation or bouncing areas. These interpretations are usually used to
 decide if a market is a good candidate for trading. Forecasting algorithms can
 be extended to the use of market interpretability: if a market can be easily
 predicted, then it can be interpreted as a profitable market. As an example of
-this approach, one can see the work by Brown et al. \cite{Brown2013}, where
-they use a variation of a genetic algorithm to generate a set of rules that
-forecast the prices of multiple stocks from the Dow Jones Index, and decide
-which stocks to buy based on the performance obtained by the sets of rules.
+this approach, one can see the work by Brown et al. \cite{Brown2013}, where they
+use a variation of a genetic algorithm to generate a set of rules that forecast
+the prices of multiple stocks from the Dow Jones Index, and decide which stocks
+to buy based on the performance obtained by the sets of rules.
 
 The work by Brown et al. can be considered as a decision support
 system. Decision support systems provide refined information about a situation
@@ -339,128 +368,118 @@ a traditional genetic algorithm and is more efficient in its evaluations.
 
 Fuzzy systems optimization using evolutionary algorithms can be regarded as
 common practice. Some notable examples of this are the works by Thrift
-\cite{Thrift1991} and Homaifar and McCormick \cite{Homaifar19995}, which use
+\cite{Thrift1991} and Homaifar and McCormick \cite{Homaifar1995}, which use
 genetic algorithms to find optimal combinations of parameters for the membership
 functions in fuzzy systems.
 
 \section{Fuzzy Systems}
 \label{section:fuzzy-systems}
 
-\cite{Zadeh1965} zadeh fuzzy sets.
+The fuzzy systems used to represent the agents' rules in the proposed method are
+based, firstly, in the ideas of fuzzy sets by Zadeh \cite{Zadeh1965}. Secondly,
+the idea of how inference systems can be created using Zadeh's fuzzy logic come
+from the fuzzy systems created by Takagi and Sugeno \cite{Takagi1985} and, more
+importantly, the one developed by Mamdani and Assilian \cite{Mamdani1975}, as
+the fuzzy systems in the agents follow the architecture proposed in their work.
 
-\cite{Mamdani1975} Mamdani paper.
+More specifically, the fuzzy systems used in the proposed method use
+intuitionistic fuzzy sets as the membership functions, which were initially
+proposed by Atanassov in \cite{Atanassov1986} and are further described in
+\cite{Atanassov2003}. The purpose of using intuitionistic fuzzy sets instead of
+Zadeh's traditional fuzzy sets is to increase the system's modelling
+capabilities by introducing the concept of indeterminacy in the membership
+functions. Indeterminacy plays a similar role to uncertainty in traditional
+fuzzy sets, but adds an additional layer for representing uncertainty, similarly
+to how type-2 fuzzy sets do it with their footprint of uncertainty
+\cite{Mendel2002} \cite{Karnik2001}. If the reader is interested in reading more
+about type-2 fuzzy sets, the works by Liang and Mendel \cite{Liang2000} and
+Mendel et al. \cite{Mendel2006} are good starting points.
 
-\cite{Takagi1985} Sugeno paper.
-
-% comparison against type-2
-
-\cite{Mendel2002} Type-2 introduction \cite{Mendel2006} type-2 interval theory
-\cite{Liang2000} Type-2 interval theory \cite{Karnik2001} Centroid of a type-2
-fuzzy set.
-
-\cite{Pedrycz1998} shadowed sets. enhancing interpretation of results obtained
-therein. it is demonstrated how fuzzy sets can induce shadowed sets.
-
-%% ifis
-\cite{Atanassov1986} intuitionistic fuzzy sets paper.  \cite{Atanassov2003}
-Intuitionistic fuzzy sets: past, present and future.
-
+Intuitionistic fuzzy sets also have the advantage of providing an additional
+layer of interpretation to the fuzzy system. In a similar fashion, Pedrycz's
+shadowed sets \cite{Pedrycz1998} have the purpose of enhancing the
+interpretation of traditional fuzzy sets.
 
 %% implementations
-Wagner presents a robust implementation of FISs developed in Java in
-\cite{Wagner2013}. The authors of the present work have used this particular
-toolkit for comparisons in the capabilities of the IFIS to model uncertainty
-against type-1 FISs and interval type-2 FISs in
-\cite{Hernandez-Aguila2016}. Although the toolkit does not provide many tools
-for representing a FIS graphically or for interacting with one, the
-implementation provides libraries for building type-1, interval type-2, and
-generalized type-2 fuzzy systems.
-
-The work by Castro et al. \cite{castro2007interval} provides similar
-capabilities as the work by Wagner, but in this case it is an implementation in
-Matlab. A direct disadvantage of using this programming language is that Matlab
-is not a free nor open source software.  Nevertheless, the language is still
-widely used in the scientific community. Furthermore, this implementation
-follows an interface similar to the one provided by Matlab's fuzzy logic
-toolbox, and provides more robust graphical implementations than the current
-version of Wagner's toolkit.
-
-% fuzzy software
-\cite{Wagner2013} java based type-2.
-
-\cite{castro2007interval} Ramon toolbox.
-
-\cite{Hernandez-aguila2016} My Proposal \cite{Hernandez-Aguila2017} My
-Implementation
-
-% mention my works, the proposal and the implementation
+Regarding implementations of fuzzy systems, Wagner presents a robust
+implementation developed in Java in \cite{Wagner2013}. Although the toolkit does
+not provide many tools for representing fuzzy systems graphically or for
+interacting with one, the implementation provides libraries for building type-1,
+interval type-2 and generalized type-2 fuzzy systems. The work by Castro et
+al. \cite{castro2007interval} provides similar capabilities as the work by
+Wagner, but in this case it is an implementation in Matlab. The author of this
+thesis developed an implementation for building fuzzy systems in Clojure, which
+is presented in \cite{Hernandez-Aguila2017} and the theory behind it is
+described in \cite{Hernandez-aguila2016}. Although this system lacks an
+implementation for type-2 fuzzy systems like the previous two implementations,
+it does provide an implementation for intuitionistic fuzzy systems.
 
 %% imembership function design
-The most common approach to graphically representing an IFS is by
-lattices. Examples of this type of representation can be found in the works by
-I. Despi et al. \cite{Despi2013}, and G. Deschrijver et
-al. \cite{Deschrijver2004}. This is a popular approach to graphically represent
-an IFS as it enables more compact and concise mathematical expressions. Another
-representation that is suitable for mathematical processes is that of a matrix,
-and is discussed in detail in the works by R. Parvathi et
-al. \cite{Parvathi2014}, G. Çuvalcioglu et al. \cite{Yilmaz2015}, and S. Yilmaz
-et al. \cite{Yilmaz2015a}.
+%% The most common approach to graphically representing an IFS is by
+%% lattices. Examples of this type of representation can be found in the works by
+%% I. Despi et al. \cite{Despi2013}, and G. Deschrijver et
+%% al. \cite{Deschrijver2004}. This is a popular approach to graphically represent
+%% an IFS as it enables more compact and concise mathematical expressions. Another
+%% representation that is suitable for mathematical processes is that of a matrix,
+%% and is discussed in detail in the works by R. Parvathi et
+%% al. \cite{Parvathi2014}, G. Çuvalcioglu et al. \cite{Yilmaz2015}, and S. Yilmaz
+%% et al. \cite{Yilmaz2015a}.
 
-IFSs that are graphically represented like membership functions are usually
-represented in Mamdani FISs, and some example works are the ones by
-K. T. Atanassov \cite{Atanassov1986}, and H. Davarzani and M. A. Khorheh
-\cite{Davarzani2013}. This notation can be suitable for representing an
-architecture of an IFIS, but if the plot is in black and white, or in greyscale,
-the reader can get confused by the membership and non-membership plots. This
-problem can be alleviated by plotting the membership and non-membership
-functions in separate plots, as in the works by O. Castillo et
-al. \cite{castillo2007intuitionistic}, and M. Akram et al. \cite{Akram2014}.
+%% IFSs that are graphically represented like membership functions are usually
+%% represented in Mamdani FISs, and some example works are the ones by
+%% K. T. Atanassov \cite{Atanassov1986}, and H. Davarzani and M. A. Khorheh
+%% \cite{Davarzani2013}. This notation can be suitable for representing an
+%% architecture of an IFIS, but if the plot is in black and white, or in greyscale,
+%% the reader can get confused by the membership and non-membership plots. This
+%% problem can be alleviated by plotting the membership and non-membership
+%% functions in separate plots, as in the works by O. Castillo et
+%% al. \cite{castillo2007intuitionistic}, and M. Akram et al. \cite{Akram2014}.
 
-There are several other graphical representations of IFSs, such as by radar
-charts, as in the work by V. Atanassova \cite{Atanassova2010}, and by
-geometrical representations, orthogonal projections and three-dimensional
-representations, as can be found in the work by E Szmidt and J. Kacprzyk
-\cite{Szmidt2000}.
+%% There are several other graphical representations of IFSs, such as by radar
+%% charts, as in the work by V. Atanassova \cite{Atanassova2010}, and by
+%% geometrical representations, orthogonal projections and three-dimensional
+%% representations, as can be found in the work by E Szmidt and J. Kacprzyk
+%% \cite{Szmidt2000}.
 
-Some applications of IFSs in the area of medical sciences can be found in the
-works by E. Szmidt and J. Kacprzyk \cite{Szmidt2001}, C. M. Own \cite{Own2009},
-and D. D. Chakarska and L. S. Antonov \cite{Antonov1995}. In the area of group
-decision making, we have an example in the work by Z. Xu \cite{Xu2007}. IFSs
-have also been used in word recognition, in the area of artificial vision, as in
-the example work of L. Baccour et al. \cite{Baccour2008}.
+%% Some applications of IFSs in the area of medical sciences can be found in the
+%% works by E. Szmidt and J. Kacprzyk \cite{Szmidt2001}, C. M. Own \cite{Own2009},
+%% and D. D. Chakarska and L. S. Antonov \cite{Antonov1995}. In the area of group
+%% decision making, we have an example in the work by Z. Xu \cite{Xu2007}. IFSs
+%% have also been used in word recognition, in the area of artificial vision, as in
+%% the example work of L. Baccour et al. \cite{Baccour2008}.
 
-This work proposes that IFSs, in a Mamdani IFIS, should follow an approach
-similar to that found in the work by K. T. Atanassov \cite{Atanassov2003}, where
-the membership is plotted as is commonly done in a traditional FIS, but the
-non-membership function should be plotted as 1-υA. The reason behind this
-decision is that the non-membership function should be easily differentiated
-from the membership function, while seeing both functions in the same plot. An
-implementation of an IFIS that uses this approach for representing IFSs for a
-Mamdani IFIS can be found in the work by A. Hernandez-Aguila and
-M. Garcia-Valdez \cite{Hernandez-aguila}.
+%% This work proposes that IFSs, in a Mamdani IFIS, should follow an approach
+%% similar to that found in the work by K. T. Atanassov \cite{Atanassov2003}, where
+%% the membership is plotted as is commonly done in a traditional FIS, but the
+%% non-membership function should be plotted as 1-υA. The reason behind this
+%% decision is that the non-membership function should be easily differentiated
+%% from the membership function, while seeing both functions in the same plot. An
+%% implementation of an IFIS that uses this approach for representing IFSs for a
+%% Mamdani IFIS can be found in the work by A. Hernandez-Aguila and
+%% M. Garcia-Valdez \cite{Hernandez-aguila}.
 
-In Figure \ref{figure:traditional-set-as-ifs}, one can see how a traditional
-fuzzy set can be constructed using the proposed approach. A Gaussian membership
-function with mean of 50 and a standard deviation of 15 is depicted.
+%% In Figure \ref{figure:traditional-set-as-ifs}, one can see how a traditional
+%% fuzzy set can be constructed using the proposed approach. A Gaussian membership
+%% function with mean of 50 and a standard deviation of 15 is depicted.
 
-\begin{figure}
-\caption{A traditional fuzzy set represented as an intuitionistic fuzzy set}
-\centering \includegraphics[width=0.7\textwidth]{img/traditional-set-as-ifs.png}
-\label{figure:traditional-set-as-ifs}
-\end{figure}
+%% \begin{figure}
+%% \caption{A traditional fuzzy set represented as an intuitionistic fuzzy set}
+%% \centering \includegraphics[width=0.7\textwidth]{img/traditional-set-as-ifs.png}
+%% \label{figure:traditional-set-as-ifs}
+%% \end{figure}
 
-Figure \ref{figure:example-of-ifs} is the first case of an IFS that cannot be
-considered a tradi-tional fuzzy set. The red line represents the membership
-function, while the blue line represents the non-membership function. As can be
-seen, the Gaussian membership function does not have a kernel, meaning that its
-highest valued member does not equal to 1. In this case, its highest valued
-member equals to 0.7, and for the non-membership function, its highest valued
-member equals to 0.3. The Gaussian membership function is constructed with a
-mean of 50 and a standard deviation of 15. For the non-membership function, it
-is con-structed with a mean of 30 and standard deviation of 30.
+%% Figure \ref{figure:example-of-ifs} is the first case of an IFS that cannot be
+%% considered a tradi-tional fuzzy set. The red line represents the membership
+%% function, while the blue line represents the non-membership function. As can be
+%% seen, the Gaussian membership function does not have a kernel, meaning that its
+%% highest valued member does not equal to 1. In this case, its highest valued
+%% member equals to 0.7, and for the non-membership function, its highest valued
+%% member equals to 0.3. The Gaussian membership function is constructed with a
+%% mean of 50 and a standard deviation of 15. For the non-membership function, it
+%% is con-structed with a mean of 30 and standard deviation of 30.
 
-\begin{figure}
-\caption{Representation of an intuitionistic fuzzy set} \centering
-\includegraphics[width=0.7\textwidth]{img/example-of-ifs.png}
-\label{figure:example-of-ifs}
-\end{figure}
+%% \begin{figure}
+%% \caption{Representation of an intuitionistic fuzzy set} \centering
+%% \includegraphics[width=0.7\textwidth]{img/example-of-ifs.png}
+%% \label{figure:example-of-ifs}
+%% \end{figure}
