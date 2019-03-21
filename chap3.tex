@@ -52,6 +52,118 @@
 %% methodology used to enhance the accuracy of the decisions. genetic algorithm to
 %% optimize. NASDAQ dataset.
 
+%% market interpretability help choosing stocks
+%% \cite{Brown2013} interpretation. niche genetic algorithm to select stocks from
+%% dow jones. uses another algorithm to forecast markets. then chooses the best.
+
+%% The work by Brown, Pelosi and Dirska uses a Niche Genetic Algorithm called
+%% Dynamic-radius Species-conserving Genetic Algorithm (DSGA) to select stocks to
+%% purchase from the Dow Jones Index.
+
+%% decision support systems
+%% \cite{Keen1980} general theory about decision support systems.
+
+%% example of a DSS
+%% \cite{Tsang2004} interpretability. Evolutionary Dynamic Data Investment
+%% Evaluator (EDDIE) is a genetic programming (GP)-based decision support tool for
+%% financial forecasting. It serves to improve the productivity of experts in
+%% searching the space of decision trees, with the aim to improve the odds in its
+%% user’s favour.
+
+%% \cite{tsang1998eddie} EDDIE has been applied to horse racing and achieved
+%% outstanding results. When experimented on 180 handicap races (real data) in the
+%% UK, it out-performed other common strategies. The idea was then extended to
+%% financial forecasting. When tested on historical S&P-500 data EDDIE achieved a
+%% respectable annual rate of return over a three and a half year period.
+
+%% further studies about DSS
+%% \cite{Sprague1980} DSS. examines people using it, the roles and types of people
+%% using the DSS. outlines issues in their use.
+
+%% interpret using candlesticks
+%% \cite{Nison1991} general theory about japanese candlesticks and patterns.
+
+%% wilder's they interpret different aspects
+%% \cite{Wilder1978} theory about his technical indicators.
+
+%% how volume can be used to interpret the market
+%% \cite{Blume1994} agents learning process. technical analysis. investigate the
+%% informational role of volume and its applicability for technical
+%% analysis. traders receive signals with differing quality. We show how volume,
+%% information precision, and price movements relate, and demonstrate how sequences
+%% of volume and prices can be informative.
+
+%% automatic pattern finding
+%% \cite{Lo2000} technical analysis. automatic approach to technical pattern
+%% recognition using kernel regression. u.s. stocks to evaluate the effectiviness
+%% of tech analysis. they do provide incremental information and may have some
+%% practical value.
+
+%% finding tech rules
+%% \cite{Neely1997} genetic programming to find technical trading
+%% rules. Bootstrapping results on the dollar/Deutsche mark indicate that the
+%% trading rules detect patterns in the data that are not captured by standard
+%% statistical models.
+
+%% tech analysis can be used to reduce noise. here's another work:
+%% The work by Lu, Lee, and Chiu \cite{Lu2009} point out the complexity of
+%% financial time-series. They note its noisy nature and propose a technique to
+%% reduce this noise based in a two-stage modeling approach using Independent
+%% Component Analysis (ICA) and Support Vector Regression (SVR). Their approach
+%% first uses ICA for generating independent components to identify and remove
+%% those containing the noise, then the remaining components are used to
+%% reconstruct the forecasting variables which now contain less noise and are the
+%% input of the SVR forecasting model.
+
+% agents can also be used to generate interpretations
+% basic concepts
+%% \cite{Grothmann2002} general theory about multi agent systems in market
+%% modelling using neural networks.  \cite{Lebaron2001} a builder's guide to agent
+%% based financial markets.
+
+%% As a final mention, Samanidou, et. al. \cite{Samanidou_2007}, provides the
+%% reader a very comprehensive overview of Agent-based Modeling, where different
+%% techniques to perform this kind of models are discussed.
+
+%% The authors of this work gained useful knowledge about multi-agent system from
+%% two theses. The first one is the work from Grothmann \cite{Grothmann2002},
+%% ``Multi-agent Market Modeling based on Neural Networks.'' This work served as
+%% inspiration for the architecture of the Proposed Method. The second thesis is
+%% \cite{Boer-Sorban2008}'s ``Agent-Based Simulation of Financial Markets,'' which
+%% gave an overview of approaches to describe and understand financial market's
+%% dynamics, and motivated the authors of this work to use the approach of
+%% Agent-based Computation to perform financial forecast.
+
+%% some microscopic models
+%% \cite{Bundesbank2007} agents. several microscopic (“agent-based”) models of
+%% financial markets which have been studied by economists and physi- cists over
+%% the last decade: Kim-Markowitz, Levy-Levy-Solomon, Cont- Bouchaud,
+%% Solomon-Weisbuch, Lux-Marchesi, Donangelo-Sneppen and Solomon-Levy-Huang. aim is
+%% to reproduce (and, thereby, provide possible explana- tions) for the bubbles and
+%% crashes seen in certain histori- cal episodes.
+
+%% introduction
+%% \cite{Shoham2009} I use this architecture.
+
+%% one agent per strategy, similar than previous
+%% \cite{Sherstov2005} three autonomous stock trading agents. within the framework
+%% of the Penn Exchange Simulator (PXS), a novel stock-trading simulator. The three
+%% approaches presented take inspiration from reinforcement learning, myopic
+%% trading using regression-based price prediction, and market making. The
+%% market-making strategy was the winner in the fall 2003 PLAT live competition.
+
+%% simulation
+%% Kendall and Su \cite{Kendall2003} use a multi-agent system to simulate stock
+%% markets within which stock traders are modeled as heterogeneous adaptive
+%% artificial agents. On average, 80\% of the artificial stock traders were able to
+%% trade using successful trading strategies which brings the investors higher
+%% returns compared to a simple buy-and-hold strategy.
+
+%% population of agents, evolved. similar to proposed method
+%% \cite{Chen2001} close to proposed method. agents. population of
+%% agents. consideration trader's search behavior. evolve population using
+%% GP. connect search density to psychological factors such as peer pressure.
+
 This Chapter focuses on showcasing a series of works that should help the reader
 understand what is the state of the different parts that compose the proposed
 method presented in Chapter \ref{chapter:proposed-method}.
@@ -120,129 +232,66 @@ Technical indicators can be used to interpret the price data of financial
 markets. For example, Wilder's Parabolic SAR can be used to determine if a
 market has shifted its trend \cite{Wilder1978}. In the case of the proposed
 method's preprocessing algorithm, its plots can be used to determine possible
-price stagnation or bouncing areas.
+price stagnation or bouncing areas. These interpretations are usually used to
+decide if a market is a good candidate for trading. Forecasting algorithms can
+be extended to the use of market interpretability: if a market can be easily
+predicted, then it can be interpreted as a profitable market. As an example of
+this approach, one can see the work by Brown et al. \cite{Brown2013}, where
+they use a variation of a genetic algorithm to generate a set of rules that
+forecast the prices of multiple stocks from the Dow Jones Index, and decide
+which stocks to buy based on the performance obtained by the sets of rules.
 
-%% market interpretability help choosing stocks
-\cite{Brown2013} interpretation. niche genetic algorithm to select stocks from
-dow jones. uses another algorithm to forecast markets. then chooses the best.
+The work by Brown et al. can be considered as a decision support
+system. Decision support systems provide refined information about a situation
+in order to help its users take a decision \cite{Keen1980}. The proposed method
+can be used in this way by examining the decisions and rules that the agents
+needed to follow in order to provide a simulation of a financial market. As a
+notable example of a decision support system for market trading the reader can
+examine the works by Tsang and Li \cite{Tsang2004} \cite{tsang1998eddie} where
+they describe EDDIE, a tool based on a genetic programming algorithm and
+decision trees used for market evaluation.
 
-The work by Brown, Pelosi and Dirska uses a Niche Genetic Algorithm called
-Dynamic-radius Species-conserving Genetic Algorithm (DSGA) to select stocks to
-purchase from the Dow Jones Index.
+In addition to how one can use candlestick charts to interpret a market's
+behavior \cite{Nison1991}, the volume of units traded can also be used to
+provide interpretations. Blume et al. \cite{Blume1994} show in their work how
+volume and price movements relate, and how this information can benefit the
+agents' learning process in a multi-agent system.
 
-%% decision support systems
-\cite{Keen1980} general theory about decision support systems.
-
-%% example of a DSS
-\cite{Tsang2004} interpretability. Evolutionary Dynamic Data Investment
-Evaluator (EDDIE) is a genetic programming (GP)-based decision support tool for
-financial forecasting. It serves to improve the productivity of experts in
-searching the space of decision trees, with the aim to improve the odds in its
-user’s favour.
-
-\cite{tsang1998eddie} EDDIE has been applied to horse racing and achieved
-outstanding results. When experimented on 180 handicap races (real data) in the
-UK, it out-performed other common strategies. The idea was then extended to
-financial forecasting. When tested on historical S&P-500 data EDDIE achieved a
-respectable annual rate of return over a three and a half year period.
-
-%% further studies about DSS
-\cite{Sprague1980} DSS. examines people using it, the roles and types of people
-using the DSS. outlines issues in their use.
-
-%% we can use tech ind to interpret the market
-\cite{Ijegwa2014} interpretation. decisions. fuzzy inference to stock market,
-using four indicators. deal with probability. The four technical indicators are
-the Moving Average Convergence/Divergence (MACD), Relative Strength Index (RSI),
-Stochastic Oscillator (SO) and On-Balance Volume (OBV). Fuzzy manually
-designed. The result is a recommendation to buy, sell or hold. Data two nigerian
-banks. Two months of data.
-
-%% interpret using candlesticks
-\cite{Nison1991} general theory about japanese candlesticks and patterns.
-
-%% wilder's they interpret different aspects
-\cite{Wilder1978} theory about his technical indicators.
-
-%% how volume can be used to interpret the market
-\cite{Blume1994} agents learning process. technical analysis. investigate the
-informational role of volume and its applicability for technical
-analysis. traders receive signals with differing quality. We show how volume,
-information precision, and price movements relate, and demonstrate how sequences
-of volume and prices can be informative.
-
-%% automatic pattern finding
-\cite{Lo2000} technical analysis. automatic approach to technical pattern
-recognition using kernel regression. u.s. stocks to evaluate the effectiviness
-of tech analysis. they do provide incremental information and may have some
-practical value.
-
-%% finding tech rules
-\cite{Neely1997} genetic programming to find technical trading
-rules. Bootstrapping results on the dollar/Deutsche mark indicate that the
-trading rules detect patterns in the data that are not captured by standard
-statistical models.
-
-%% tech analysis can be used to reduce noise. here's another work:
-The work by Lu, Lee, and Chiu \cite{Lu2009} point out the complexity of
-financial time-series. They note its noisy nature and propose a technique to
-reduce this noise based in a two-stage modeling approach using Independent
-Component Analysis (ICA) and Support Vector Regression (SVR). Their approach
-first uses ICA for generating independent components to identify and remove
-those containing the noise, then the remaining components are used to
-reconstruct the forecasting variables which now contain less noise and are the
-input of the SVR forecasting model.
+There are also works that have focused on automatically finding patterns that
+emerge in the market, such as in the works by Lo et al. \cite{Lo2000} and Neely
+et al. \cite{Neely1997} where they try to find patterns in technical indicators
+by using kernel regression and genetic programming, respectively.
 
 \section{Multi-agent Systems}
 \label{section:multi-agent-systems}
-% agents can also be used to generate interpretations
-% basic concepts
-\cite{Grothmann2002} general theory about multi agent systems in market
-modelling using neural networks.  \cite{Lebaron2001} a builder's guide to agent
-based financial markets.
 
-As a final mention, Samanidou, et. al. \cite{Samanidou_2007}, provides the
-reader a very comprehensive overview of Agent-based Modeling, where different
-techniques to perform this kind of models are discussed.
+Some works related to multi-agent systems have already been mentioned in the
+previous Sections of this Chapter, but as the proposed method is based
+specifically on this technique, it is worth mentioning some additional
+works. Multi-agent systems have commonly been used in the past decades to
+described financial markets, due to their capabilites to model very complex
+systems. The reader can consult the works by Lebaron \cite{Lebaron2001} and
+Samanidou \cite{Bundesbank2007} to learn more about how to apply this technique
+to financial market modelling.
 
-The authors of this work gained useful knowledge about multi-agent system from
-two theses. The first one is the work from Grothmann \cite{Grothmann2002},
-``Multi-agent Market Modeling based on Neural Networks.'' This work served as
-inspiration for the architecture of the Proposed Method. The second thesis is
-\cite{Boer-Sorban2008}'s ``Agent-Based Simulation of Financial Markets,'' which
-gave an overview of approaches to describe and understand financial market's
-dynamics, and motivated the authors of this work to use the approach of
-Agent-based Computation to perform financial forecast.
+The proposed method started by following the recommendations in Shoham's work
+\cite{Shoham1993} \cite{Shoham2009}, where agents are described as entities that
+have a set of beliefs that determine how they perceive their environment. These
+perceptions are then used as inputs to a rule system that determine the actions
+to be performed on their environment. Other works that implement this
+methodology are the works by Samanidoe et al. \cite{Bundesbank2007} and Sherstov
+and Stone\cite{Sherstov2005}, where they implement known economic models as the
+agents rules and see how they can model specific phenomena, such as economic
+bubbles.
 
-%% introduction
-\cite{Shoham2009} I use this architecture.
-
-%% some microscopic models
-\cite{Bundesbank2007} agents. several microscopic (“agent-based”) models of
-financial markets which have been studied by economists and physi- cists over
-the last decade: Kim-Markowitz, Levy-Levy-Solomon, Cont- Bouchaud,
-Solomon-Weisbuch, Lux-Marchesi, Donangelo-Sneppen and Solomon-Levy-Huang. aim is
-to reproduce (and, thereby, provide possible explana- tions) for the bubbles and
-crashes seen in certain histori- cal episodes.
-
-%% one agent per strategy, similar than previous
-\cite{Sherstov2005} three autonomous stock trading agents. within the framework
-of the Penn Exchange Simulator (PXS), a novel stock-trading simulator. The three
-approaches presented take inspiration from reinforcement learning, myopic
-trading using regression-based price prediction, and market making. The
-market-making strategy was the winner in the fall 2003 PLAT live competition.
-
-%% simulation
-Kendall and Su \cite{Kendall2003} use a multi-agent system to simulate stock
-markets within which stock traders are modeled as heterogeneous adaptive
-artificial agents. On average, 80\% of the artificial stock traders were able to
-trade using successful trading strategies which brings the investors higher
-returns compared to a simple buy-and-hold strategy.
-
-%% population of agents, evolved. similar to proposed method
-\cite{Chen2001} close to proposed method. agents. population of
-agents. consideration trader's search behavior. evolve population using
-GP. connect search density to psychological factors such as peer pressure.
+A work concerned with the use of multi-agent systems for the simulation of stock
+markets is \cite{Kendall2003}, which describes a method similar to the one
+proposed in this thesis regarding how multiple agents are used to simulate
+different trader profiles in order to create a simulation of the real market
+prices. Another similar approach to the proposed method is the work by
+\cite{Chen2001}, where populations of agents are evolved using genetic
+programming to simulate the traders' behavior in a market, and then connect
+these behaviors to psychological factors such as peer pressure.
 
 \section{Evolutionary Algorithms}
 \label{section:evolutionary-algorithms}
