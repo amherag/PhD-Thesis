@@ -20,7 +20,7 @@ market prices \cite{Achelis2000}. These processes are known as technical
 indicators, which often focus on providing the chartist with information about a
 market that would be difficult to infer by only looking at the raw price data.
 
-Although some studies have suggested that technical analysis works because it is
+Although some studies have suggested that technical analysis works because it is a
 ``self-fulfilling prophecy'' \cite{Salganik2008} \cite{Fund1992}, other studies
 also suggest that its usefulness in market forecasting is important
 \cite{Kadiri2015} \cite{Fund1992}.
@@ -40,7 +40,7 @@ case of candlestick patterns \cite{Nison1991} or linear regression
 time series, could be considered a technical indicator if used to forecast a
 financial market. One can add an extra layer in the forecasting process and use
 the outputs from the technical indicators as inputs to another algorithm. For
-example, Ijegwa et al. \cite{Ijegwa2014} use four technical indicators as the
+example, Ijegwa et al. \cite{Ijegwa2014} uses four technical indicators as the
 inputs for a fuzzy system that estimates the probability of a market's price
 going up or down. This approach is similar to the one proposed in this thesis,
 as the preprocessing algorithm is based on a technical indicator and it is used
@@ -106,7 +106,7 @@ Some works related to multi-agent systems have already been mentioned in the
 previous Sections of this Chapter, but as the proposed method is based
 specifically on this technique, it is worth mentioning some additional
 works. Multi-agent systems have commonly been used in the past decades to
-described financial markets, due to their capabilites to model very complex
+describe financial markets, due to their capabilites to model very complex
 systems. The reader can consult the works by Lebaron \cite{Lebaron2001} and
 Samanidou \cite{Bundesbank2007} to learn more about how to apply this technique
 to financial market modelling.
@@ -114,19 +114,19 @@ to financial market modelling.
 The proposed method started by following the recommendations in Shoham's work
 \cite{Shoham1993} \cite{Shoham2009}, where agents are described as entities that
 have a set of beliefs that determine how they perceive their environment. These
-perceptions are then used as inputs to a rule system that determine the actions
+perceptions are then used as inputs to a rule system that dictate the actions
 to be performed on their environment. Other works that implement this
 methodology are the works by Samanidoe et al. \cite{Bundesbank2007} and Sherstov
 and Stone\cite{Sherstov2005}, where they implement known economic models as the
-agents rules and see how they can model specific phenomena, such as economic
+agents' rules and see how they can model specific phenomena, such as economic
 bubbles.
 
 A work concerned with the use of multi-agent systems for the simulation of stock
-markets is \cite{Kendall2003}, which describes a method similar to the one
+markets is that proposed by Kendal et al. \cite{Kendall2003}, which describes a method similar to the one
 proposed in this thesis regarding how multiple agents are used to simulate
 different trader profiles in order to create a simulation of the real market
 prices. Another similar approach to the proposed method is the work by
-\cite{Chen2001}, where populations of agents are evolved using genetic
+Chen \cite{Chen2001}, where populations of agents are evolved using genetic
 programming to simulate the traders' behavior in a market, and then connect
 these behaviors to psychological factors such as peer pressure.
 
@@ -148,7 +148,7 @@ genetic algorithm to a variation of it, such as the compact genetic algorithm
 proposed by Harik \cite{Harik1999}, which uses less computational resources than
 a traditional genetic algorithm and is more efficient in its evaluations.
 
-Fuzzy systems optimization using evolutionary algorithms can be regarded as
+The optimization of Fuzzy systems using evolutionary algorithms can be regarded as
 common practice. Some notable examples of this are the works by Thrift
 \cite{Thrift1991} and Homaifar and McCormick \cite{Homaifar1995}, which use
 genetic algorithms to find optimal combinations of parameters for the membership
@@ -183,6 +183,7 @@ shadowed sets \cite{Pedrycz1998} have the purpose of enhancing the
 interpretation of traditional fuzzy sets.
 
 %% implementations
+%% This cpuld be a Subsection - Mario
 Regarding implementations of fuzzy systems, Wagner presents a robust
 implementation developed in Java in \cite{Wagner2013}. Although the toolkit does
 not provide many tools for representing fuzzy systems graphically or for
