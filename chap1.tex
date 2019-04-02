@@ -1,28 +1,27 @@
 \chapter{Introduction}
 \label{chapter:introduction}
 
-% Reading this section, I think this is actually a better Introducion, start
-% with this section. Start by presenting the Problem.
-
 There are systems where the number of elements that conform it is considerably
 low or it is easy to understand how the elements interact among them. For
 example, analyzing projectile trajectories is a rather easy to understand
 problem, where the number of significant factors involved in the problem is
 low. As another example, we can perform a structural analysis of a building, and
 even though the number of loads being involved in the analysis can be very high,
-one can still understand how the loads are going to interact among them with a 
+one can still understand how the loads are going to interact among them with a
 % This is true, but this  possible because of how the system is modeled,
 % ignoring the many variables involved. For instance, tiny air waves or changes in steel beams. 
 % Never the less these systems are easy to model and are usefull at a certain level of abstraction.
 % Maybe you could briefly comment on this.  - Mario
-very high precision. In contrast, there are systems where the elements that are
-interacting in it are very hard to understand or the number of elements is
-very high. For example, understanding why human beings can change their
-religious beliefs is a situation which is very hard to understand, or to
-calculate what is going to be the final position of thousands of paper sheets
-thrown in the air at the same time is a task which is almost impossible to
-do. These systems that are hard to model by simple mathematical formulas are
-known as complex systems. % Add a reference to an important paper on CS.
+very high precision. It is worth mentioning that these models provide a
+simplification of the problem they are modeling; they do not consider variables
+that are not significant to the problem of interest. In contrast, there are
+systems where the significant elements that are interacting in it are very hard
+to understand or the number of elements is very high. For example, understanding
+why human beings can change their religious beliefs is a situation which is very
+hard to understand, or to calculate what is going to be the final position of
+thousands of paper sheets thrown in the air at the same time is a task which is
+almost impossible to do. These systems that are hard to model by simple
+mathematical formulas are known as complex systems \cite{Anderson1999}. % Add a reference to an important paper on CS.
 
 A financial market is an example of a complex system, where thousands of traders
 are constantly deciding how many units are going to be sold or bought at
@@ -32,17 +31,13 @@ decision on news interpretations. And even after establishing a trading
 strategy, traders can decide to ignore their conclusions due to subjective
 factors such as "having a bad feeling about this." As a consequence, financial
 markets are frequently used to showcase complexity theory concepts
-\ref{Arthur1999} \ref{Bundesbank2007}. Even though these markets can exhibit an
+\cite{Arthur1999} \cite{Bundesbank2007}. Even though these markets can exhibit an
 almost chaotic behavior, certain patterns still emerge, which stop financial
-markets from being labeled as chaotic systems \ref{Castillo2001}.
-
-% Add references in: % "financial markets are frequently used to showcase
-% complexity theory concepts" % which stop financial markets from being labeled
-% as chaotic systems.
+markets from being labeled as chaotic systems \cite{Castillo2001}.
 
 One of the methods used for forecasting how a financial market will behave in
-price is to use fundamental analysis \ref{}. This type of analysis takes into % Reference missing
-account information that you can gather from the factors that influence the % Can we say knowledge instead of information?
+price is to use fundamental analysis \cite{Kadiri2015}. This type of analysis takes into % Reference missing
+account knowledge that you can gather from the factors that influence the % Can we say knowledge instead of information?
 market's price. For example, if a company releases their financial statements
 and they demonstrate that the company is performing financially well, it is very
 likely that a surge in the company's stock price will occur. In this case, a
@@ -60,12 +55,6 @@ as can be seen in Figure \ref{figure:moving-average-example}. This way a trader
 can see all the information in a graphical manner, and have everything plotted
 on a single chart.
 
-% complex systems -> financial markets -> fundamental analysis -> technical
-% analysis -> fibonacci retracements -> people have different
-% interpretations -> people don't think in a crisp way and the last two
-% are the problem: different interpretations, many people,
-% and how do we represent this thought
-
 \begin{figure}
   \caption{Moving average example} \centering
   \includegraphics[width=0.7\textwidth]{img/moving-average.png}
@@ -80,7 +69,8 @@ technical analysis is correct. Nevertheless, there is a big number of technical
 indicators, and many of these technical indicators are parametrized, which means
 that there are many possible ways of interpreting a market using technical
 indicators. Still, there is enough empirical evidence that demonstrates that
-technical analysis can help a trader to better understand a market. 
+technical analysis can help a trader to better understand a market
+\cite{Achelis2000} \cite{Fund1992} \cite{Li1999}. 
 %% Are there any references about this empirical evidence? or is it anecdotal?
 A possible
 explanation behind this is that, although there are virtually an infinite number
@@ -104,35 +94,37 @@ In conclusion, in order to understand a market from a technical analysis point
 of view, one needs to take into consideration that a number of traders with
 different ideas and different interpretations of the market are creating the
 price movements. Forecasting or modelling tools taking a technical analysis
-approach should take into consideration these factors.
+approach should take into consideration these factors. %% This thesis work proposes
+%% that the problem of modelling these traders can be solved by using a multi-agent
+%% system where technical analysis is used to describe how the agents are
+%% perceiving the market.
 
 % There is a bridge missing over here. Please write a conclusion paragraph 
 % for this passage. Briefly state what is the problem and what could be a soulution?
 % - Mario 
 
 %% P.D., after reading further, I think the section break could be the problem.
-%% Move it to the point where you are going to state the structure or even remove it 
+%% Move it to the point where you are going to state the structure or even
+%% remove it
 
-\section{Thesis Structure}
-\label{section:thesis-structure}
+%% \section{Thesis Structure}
+%% \label{section:thesis-structure}
 
-% Comments are placed after each sentence % consider doing a hard wrap to 80 or
-% so characters so.  % This will make easier to place comments on each line, for
-% GitHub
-
-The objective of this thesis is to propose a novel series of approaches on how % series of approaches -> Methodology 
-% You are proposing a new method  
-to analize and interpret a financial market to obtain insights that can be
-used to describe the behavior behind that market and create a profitable trading 
+This thesis work proposes that the problem of modelling these traders can be
+solved by using a multi-agent system where technical analysis is used to
+describe how the agents are perceiving the market. In the end, the methodology
+presented in this work can be used as an approach to analyze and interpret a
+financial market to obtain insights that can be used to describe the behavior
+behind that market and create a trading
 % and create a profitable trading  -> and create a trading strategy with better perfomance 
 % or something like this. We cannot warrant a profitable trading strategy. 
-strategy. In this first Chapter the reader finds the motivation of this work,
-such as why understanding a financial market is a problem and why solving this
-problem is beneficial (see Section \ref{section:justification}).
+strategy that can help a trader take better trading decisions. In this first
+Chapter the reader finds the motivation of this work, such as why understanding
+a financial market is a problem and why solving this problem is beneficial (see
+Section \ref{section:justification}).
 
 % In the first sentence "propose a novel series of approaches to how a financial
 % market can be interpreted and analyzed"
-
 
 % the things you approach "interpreted and analyzed" are to far away, maybe:
 % ... approaches on how to analize and interpret a financial market ...  % we
@@ -174,7 +166,7 @@ After having implemented the proposed method, a series of experiments were
 performed to demonstrate how it compares to other similar solutions. The
 experiments also help the reader to understand how the method can be used to
 obtain insights from a financial market, as well as how one can use these
-insights to perform better decisions while trading such markets. These % trading IN such markets? or is jargon?
+insights to perform better decisions while trading in such markets. These % trading IN such markets? or is jargon?
 experiments are presented in Chapter \ref{chapter:experiments}, where their
 design is discussed, and the results obtained from the experiments are presented
 in Chapter \ref{chapter:results}.
@@ -209,8 +201,9 @@ addition to receiving the financial market data from the broker, a trader can
 also send transaction operations to the broker, such as buy or sell orders. Many
 authors consider multi-agent systems and agent-based models as one of the better
 tools for modelling and simulating financial markets \cite{Lebaron2001}
-\cite{Gamil2007} \cite{Boer-Sorban2008}, due to their flexibility to represent
-very complex systems. % Also there is the paper from Puga, please add a reference. 
+\cite{Gamil2007} \cite{Boer-Sorban2008} \cite{Suarez2008} \cite{Suarez2012}, due
+to their flexibility to represent very complex systems. % Also there is the
+paper from Puga, please add a reference.
 
 Implementing an agent-based solution allows not only to simulate the actions
 that different entities can take in a complex system, but also to model how the
@@ -218,6 +211,24 @@ agents are perceiving their environment and the inference process used to take
 such actions. This is interesting because the simulated models created using an
 agent-based solution can then be examined by looking at how each of the agents
 behaves in the system.
+
+In addition to the use of a multi-agent architecture to simulate the traders,
+the actions of the traders are modelled by the use of fuzzy systems. These
+systems allow the system to increase its interpretability: why a trader took
+certain decision can be understood after examining the composition of the fuzzy
+rules. Specifically, this work uses intuitionistic fuzzy systems in order to
+provide another layer of interpretation, as this type of systems can explain the
+hesitancy that is present in the inputs and outputs of the systems.
+
+The agents' perception of their environment is determined through the use of
+technical analysis, which is used to provide a simplified version of the price
+data of a financial market. The preprocessing algorithms (technical indicators)
+are parameterized, which means that can be adjusted according to an agent's
+profile (beliefs).
+
+In the end, the presented method provides an architecture that can successfully
+model and describe the interaction among the different traders that create the
+price increments and decrements in a financial market.
 
 %% Then talk about how to model the agents' actions or belfies, etc.
 
