@@ -4,8 +4,9 @@
 The following Sections describe an implementation of the proposed method
 described in Chapter \ref{chapter:proposed-method}. This implementation uses the
 intuitionistic fuzzy system described in \cite{Hernandez-Aguila2017}, which is
-programmed in Clojure, and a custom-made multi-agent system that was done in
-Common Lisp. % Add a link to the Github Repo - Mario
+programmed in Clojure (https://github.com/amherag/intuitionistic-fis), and a
+custom-made multi-agent system that was done in Common Lisp
+(https://github.com/amherag/neuropredictions).
 
 \section{Defining the Input Dataset}
 \label{section:defining-the-input-dataset}
@@ -30,11 +31,14 @@ in that hour is used. It is also common to see a volume count in the datasets;
 this information is also discarded. Finally, the time associated to each session
 in the dataset is used, which means that from any financial market dataset used,
 this implementation only uses the close price of each session and the time at
-which this close price occurred. 
+which this close price occurred. Discarding this data does not mean that it is
+not useful, as it can be considered in later versions of the implementation;
+it is discarded only because it helps to maintain the implementation simple.
 % Please justify why, to be more compact? to run the alg. faster? - Mario
 
-This implementation only works for datasets of foreign exchange financial
-markets. 
+This implementation has only been tested with datasets of foreign exchange
+financial markets. However, it should work with datasets of other
+markets.
 % Again, why? - Mario
 
 \section{Preprocessing a Financial Market using Retracements}
@@ -44,9 +48,12 @@ After a trial and error process in undocumented initial experiments, it was
 found convenient to use 20 data points to generate the sets of retracements
 associated to each price point. The subjective metrics used to determine this
 are the processing time required and the interpretability of the plots generated
-with this parameter. The author of this thesis used the resulting plots as a
-guideline to perform a series of successful real trades in multiple foreign
-exchange markets. % More detail? - Mario
+with this parameter. %% The author of this thesis used the resulting plots as a
+%% guideline to perform a series of successful real trades in multiple foreign
+%% exchange markets by opening a trade whenever the price reached low weight
+%% price areas. % More detail? - Mario
+%% Amaury: Uhh I just removed it. I think I was going to talk more about this,
+%% but it is not relevant at all.
 
 The ratios used to calculate the retracements are determined by the beliefs of
 the agent preprocessing the raw market data. These ratios are represented by a
@@ -57,8 +64,8 @@ capacity of representing different agent profiles. The size limit of 6 beliefs
 was arbitrarily set.
 
 After calculating the sets of retracements for the last 20 price differences,
-these are used to determine weighed price areas. Price areas are intervals
-of prices of a fixed height, which is 10 asset units in the case of this
+these are used to determine weighed price areas. Price areas are intervals of
+prices of a fixed height, which is 10 asset units in the case of this
 implementation. For example, in the case of the Euro vs United States Dollar,
 the price interval $[1.1300, 1.1400]$ can be divided into ten price areas of 10
 units each, as a single unit in this market is equivalent to $0.0010$. If three
@@ -66,7 +73,16 @@ retracement prices are contained in the interval $[1.1300, 1.1310\right)$, then
   this area is associated a weight of $3$. An example of such price areas is
   shown in Figure \ref{figure:example-of-retracement-areas}. The heatmap scale
   is shown at the right, showing that blocks with a greater weight are of a
-  lighter color, while blocks with a lower weight are of a darker color.
+  lighter color, while blocks with a lower weight are of a darker color. In
+  further versions of this implementation it should be possible to choose values
+  different than 10, but at the moment the implementation only works with powers
+  of 10, e.g. 1, 10, 100, 1000, etc. This limitation is due to a bug on how the
+  method is coded. Considering the available options for this parameter, 10 is
+  the only setting that made sense to use for the timeframe chosen for the
+  datasets, as using 1-unit price areas is the equivalent to not using price
+  areas at all, and 100-unit and higher price areas would not have an
+  appropriate granularity for the 1-hour timeframe, i.e. the agents would end
+  perceiving a few number of price areas.
   % Could you explain why 10 units? - Mario 
 
 \begin{figure}
@@ -81,7 +97,8 @@ retracement prices are contained in the interval $[1.1300, 1.1310\right)$, then
 An agent is represented by a vector containing its beliefs and by a matrix
 containing its rules. The elements in the belief vector, as mentioned in
 \ref{section:defining-the-input-dataset}, are random real numbers with values in
-the interval $[0, 2]$. % Values in the belief vector continue to be random or
+the interval $[0, 2]$ which are later optimized using a genetic algorithm.
+% Values in the belief vector continue to be random or
 % they are optimized later? Please explain. -Mario
 
 Each of the rules are composed of four elements: three antecedents and one
@@ -124,11 +141,17 @@ The antecedents of a rule fire the same consequent, and the intersection
 operation is applied over the three generated fired consequents (the alpha-cuts
 of the consequents). The intersection operation is used to simulate the Boolean
 operator \textit{and} among the propositions \cite{Atanassov1986}. After
-generating each of the fired, or alpha-cut, consequents for each of the rules,
+generating each of the fired -- or alpha-cut -- consequents for each of the rules,
 an aggregation is performed using the union operator, which simulates the
-consideration of all the rules from an agent.
+consideration of all the rules from an agent. This aggregation process involving
+the consequents is described in \ref{eq:aggregation-process}.
 % Could the above be stated as a Formula? - Mario 
-This aggregation is then
+
+\begin{equation}
+  \bm{A} = \bigcup\limits_{i=1}^{N} \bigcap\limits_{i=1}^{3} \bm{C_{\alpha}}
+\end{equation}
+
+The resulting aggregation from the aforementioned process is then
 defuzzified using the method found in \cite{Hernandez-Aguila2017} to obtain a
 crisp value in the interval $[0, 100]$. In order to be able to simulate sell and
 buy orders for the agent, the result of the fuzzy system is then processed by
@@ -145,7 +168,7 @@ The number of rules in an agent can vary depending on the desired modelling
 capabilities of the system, i.e. an agent with more rules can adopt a more
 complex behavior than one with a fewer number of rules. The two drawbacks with
 increasing the number of rules are a higher computational cost when optimizinig
-the system, and an increased risk of overtraining the system. % I like 'overfitting' more 
+the system, and an increased risk of overfitting the system. % I like 'overfitting' more 
 
 Another parameter that can be adjusted in this implementation is the number of
 agents in the system. The number of agents, similarly to the number of rules,
@@ -161,7 +184,9 @@ the necessary components to generate a simulation of a
 market. Nevertheless, this simulation will most likely not be a close
 resemblance to the real market prices. A genetic algorithm is used to find a
 combination of beliefs and rules for the agents that can obtain simulations that
-are closer to the real market prices. % Briefly justify the use of a GA - Mario
+are closer to the real market prices. Genetic algorithms were chosen due to
+their simplicity, but the optimization algorithm could easily be changed to
+another meta-heuristic.  % Briefly justify the use of a GA - Mario
 
 The genetic algorithm considers an individual or chromosome in two parts: the
 beliefs and the rules of the agents. The reason behind this is the
@@ -179,7 +204,6 @@ chromosome in the genetic algorithm. It can be said that the chromosomes
 represent communities of agents.
 % Why not representing the above using math notation (tuples, vectors, sets, indixes, etc.) - Mario
 % you could also comment on the other option indenpendent optimization
-
 
 In the following Subsections, the evolutionary process is described in greater
 detail.
@@ -205,7 +229,9 @@ first iterations in the evolutionary process. This is most likely due to
 incoherent rules being used to build the intuitionistic fuzzy systems. The way
 these cases are handled is by ignoring the error and penalizing these
 individuals with a very high error. This way the evolutionary process takes care
-of removing buggy individuals. 
+of removing buggy individuals. If incoherent rules are indeed being created and
+this is the cause of the bug, a way to validate the correctness of the generated
+rules could later be added.
 % Give a comment between this and havng a way of validating the correctnes of rules before the sim
 % Is it too difficult? more time consuming? maybe future work?
 
@@ -231,9 +257,12 @@ to be considered for selection, and the process is repeated until a community of
 agents with an accumulated proportional fitness greater than the random
 probability is found.
 
-The roulette wheel selection algorithm was chosen arbitrarily. % Not so much, 
+The roulette wheel selection algorithm was chosen because it has been suggested
+that it works well with both small and medium sized population, in addition to
+being a widely used selection algorithm \cite{Hancock2012}
+\cite{JinghuiZhong2006}. % Not so much, 
 % maybe you could tell this selection is more balanced? It will apear 
-% as if everything was arbitrary - Mario 
+% as if everything was arbitrary - Mario
 
 
 \subsection{Mutation}
@@ -271,6 +300,35 @@ corresponds to the concatenation of $A_1$ and $B_2$, and the new vector of
 beliefs for the second community of agents is obtained by concatenating $B_1$
 and $A_2$. This process is then applied to the sets of rules from the two
 communities.
+
+\begin{algorithm}
+  \caption{Single-point crossover algorithm for two communities of agents}
+  \label{euclid}
+  \begin{algorithmic}[1]
+    \Procedure{agents-crossover}{$A, B$};
+    \State $bel_A\gets extract_beliefs(A)$
+    \State $bel_B\gets extract_beliefs(B)$
+    
+    \State $rul_A\gets extract_rules(A)$
+    \State $rul_B\gets extract_rules(B)$
+    
+    \State $bel_point\gets rand_int(len(bel_A))$
+    \State $rul_point\gets rand_int(len(rul_A))$
+
+    \State $bel_A1\gets subseq(bel_A, 0, bel_point)$
+    \State $bel_A2\gets subseq(bel_A, bel_point, len(bel_A)$
+    \State $bel_B1\gets subseq(bel_B, 0, bel_point)$
+    \State $bel_B2\gets subseq(bel_B, bel_point, len(bel_B)$
+
+    \State $rul_A1\gets subseq(rul_A, 0, rul_point)$
+    \State $rul_A2\gets subseq(rul_A, rul_point, len(rul_A)$
+    \State $rul_B1\gets subseq(rul_B, 0, rul_point)$
+    \State $rul_B2\gets subseq(rul_B, rul_point, len(rul_B)$
+
+    \State \textbf{return} $new_agent(bel_A1 + bel_B2, rul_A1 + rul_B2), new_agent(bel_B1 + bel_A2, rul_B1 + rul_A2)$
+    \EndProcedure
+  \end{algorithmic}
+\end{algorithm}
 
 This crossover algorithm is commonly known as single-point crossover and it was
 chosen due to its simplicity.
