@@ -201,9 +201,24 @@ As it is noted in the previous paragraph, a single chromosome is composed of
 different agents. It is important to remark this, as the reader could be
 confused into thinking that a single agent represents an individual or a
 chromosome in the genetic algorithm. It can be said that the chromosomes
-represent communities of agents.
+represent communities of agents. An agent $a$, which is composed
+of a set of beliefs $\bm{B}$ and a set of rules $\bm{R}$, create a single
+individual $\bm{A}$ in the genetic algorithm. Other representations for this are
+depicted in \ref{eq:communities-of-agents}.
 % Why not representing the above using math notation (tuples, vectors, sets, indixes, etc.) - Mario
 % you could also comment on the other option indenpendent optimization
+
+\begin{equation}
+  \label{eq:communities-of-agents}
+  \begin{align*}
+    A &= {{{b_{1}, b_{2}, \ldots, b_{i}}, {r_{1}, r_{2}, \ldots, r_{j}}}_{1},
+      {{b_{1}, b_{2}, \ldots, b_{i}}, {r_{1}, r_{2}, \ldots, r_{j}}}_{2},
+      \ldots, {{b_{1}, b_{2}, \ldots, b_{i}}, {r_{1}, r_{2}, \ldots, r_{j}}}_{n}} \\
+    &= {(\bm{B_{1}}, \bm{R_{1}}), (\bm{B_{2}}, \bm{R_{2}}), \ldots, (\bm{B_{n}},
+      \bm{R_{n}})} \\
+    &= {a_{1}, a_{2}, \dots, a_{n}}
+  \end{align*}
+\end{equation}
 
 In the following Subsections, the evolutionary process is described in greater
 detail.

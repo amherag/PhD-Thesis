@@ -712,3 +712,65 @@ presented in the previous Section.
     0.048.
   \end{itemize}
 }
+
+\section{Comparison with other Works}
+\label{section:comparison-with-other-works}
+
+This Section presents a set of works that share many similarities to the work
+proposed in this thesis and that are comparable to it. Table \ref{table:results}
+shows five different works that focus on forecasting a financial market and
+yield a rate of return. The table columns show the work reference and its
+authors; the technique used to perform the forecasting; the optimization
+algorithm used, if any; the financial market type used; the percentage of profit
+or rate of return after a number of trades; and the standard deviation for the
+aforementioned rate of return. The purpose of this table is to showcase what are
+normal values of performance when forecasting financial markets and not to
+provide a concise comparison for the proposed method, as many factors do not
+match among the different works shown in the table: the size of the dataset used
+for training, the technique used, the parameters of the optimization algorithm,
+the number of trades performed, the type of the financial market,
+etc. Furthermore, the results shown in this Chapter had the purpose of
+demonstrating how the proposed method behaves using different parameters and not
+to obtain the maximum possible rate of return.
+
+The rate of returns shown in Table \ref{table:results} for the proposed method
+were obtained by averaging the units of profit for all the models that used a
+configuration of 10 agents, 10 rules and 10 individuals for the following
+financial markets: AUD/USD, EUR/GBP, EUR/USD, GBP/USD and USD/CAD. These models
+were chosen because this configuration showed a good performance, considering
+only the results included in this thesis document; other configurations could
+have achieved a better performance.
+
+\begin{tabu}
+  \caption{Long table caption.\label{table:results}}\\
+  to 0.8\textwidth { | X[l] | X[c] | X[r] | }
+  Work & Base Algorithm & Optimization Algorithm & Market Type & Performance & Standard Deviation \\
+ \hline \hline
+ \cite{Fernandez-Blanco2008} & Technical indicators & Genetic algorithm &
+ Stock market & 76.13\% & 14.15\% \\
+ \hline
+ \cite{Korczak2015} & Fuzzy multi-agent system & - & Foreign exchange markets & 32.77\% & 109.09\% \\
+ \hline
+ \cite{Korczak2016}  & Fuzzy multi-agent system  & Genetic algorithm & Foreign
+ exchange markets  & 223.08\% & 385.7\%  \\
+ \hline
+ \cite{Barbosa2010} & Ensemble multi-agent system  & Manual optimization  &
+ Foreign exchange markets  & 27.78\% & 12.43\%  \\
+ \hline
+ \cite{Escobar2013} & Fuzzy logic technical indicator & -  & Stock market & 7.35\% & 6.9\% \\
+ \hline
+ Proposed method & Fuzzy multi-agent system & Genetic algorithm & Foreign
+ exchange markets  & 2.15\% & 38.85\% \\
+% \hline
+% \cite{Kendall2003} & Multi-agent system & Genetic algorithm & Stock market &
+%  Rate of return &   \\
+ %% \hline
+ %% \cite{Kendall2003-2} & Multi-agent system &  & item 22  & item 23 \\
+ %% \hline
+ %% \cite{Chen2001}  & item 22  & item 23  \\
+ %% \hline
+ %% \cite{Hafezi2015}  & item 22  & item 23  \\
+ %% \hline
+ %% \cite{Boulle2012}  & item 22  & item 23  \\
+\hline
+\end{tabu}
