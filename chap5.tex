@@ -4,9 +4,9 @@
 The following Sections describe an implementation of the proposed method
 described in Chapter \ref{chapter:proposed-method}. This implementation uses the
 intuitionistic fuzzy system described in \cite{Hernandez-Aguila2017}, which is
-programmed in Clojure (https://github.com/amherag/intuitionistic-fis), and a
+programmed in Clojure (\url{https://github.com/amherag/intuitionistic-fis}), and a
 custom-made multi-agent system that was done in Common Lisp
-(https://github.com/amherag/neuropredictions).
+(\url{https://github.com/amherag/neuropredictions}).
 
 \section{Defining the Input Dataset}
 \label{section:defining-the-input-dataset}
@@ -69,7 +69,7 @@ prices of a fixed height, which is 10 asset units in the case of this
 implementation. For example, in the case of the Euro vs United States Dollar,
 the price interval $[1.1300, 1.1400]$ can be divided into ten price areas of 10
 units each, as a single unit in this market is equivalent to $0.0010$. If three
-retracement prices are contained in the interval $[1.1300, 1.1310\right)$, then
+retracement prices are contained in the interval $\left[1.1300, 1.1310\right)$, then
   this area is associated a weight of $3$. An example of such price areas is
   shown in Figure \ref{figure:example-of-retracement-areas}. The heatmap scale
   is shown at the right, showing that blocks with a greater weight are of a
@@ -148,7 +148,8 @@ the consequents is described in \ref{eq:aggregation-process}.
 % Could the above be stated as a Formula? - Mario 
 
 \begin{equation}
-  \bm{A} = \bigcup\limits_{i=1}^{N} \bigcap\limits_{i=1}^{3} \bm{C_{\alpha}}
+  \label{eq:aggregation-process}
+  \bm{A} = \bigcup\limits_{i=1}^{N} \bigcap\limits_{j=1}^{3} \bm{C_{\alpha}}
 \end{equation}
 
 The resulting aggregation from the aforementioned process is then
@@ -204,20 +205,25 @@ chromosome in the genetic algorithm. It can be said that the chromosomes
 represent communities of agents. An agent $a$, which is composed
 of a set of beliefs $\bm{B}$ and a set of rules $\bm{R}$, create a single
 individual $\bm{A}$ in the genetic algorithm. Other representations for this are
-depicted in \ref{eq:communities-of-agents}.
+depicted in \ref{eq:communities-of-agents} and \ref{eq:communities-of-agents-2}.
 % Why not representing the above using math notation (tuples, vectors, sets, indixes, etc.) - Mario
 % you could also comment on the other option indenpendent optimization
 
 \begin{equation}
   \label{eq:communities-of-agents}
-  \begin{align*}
-    A &= {{{b_{1}, b_{2}, \ldots, b_{i}}, {r_{1}, r_{2}, \ldots, r_{j}}}_{1},
-      {{b_{1}, b_{2}, \ldots, b_{i}}, {r_{1}, r_{2}, \ldots, r_{j}}}_{2},
-      \ldots, {{b_{1}, b_{2}, \ldots, b_{i}}, {r_{1}, r_{2}, \ldots, r_{j}}}_{n}} \\
-    &= {(\bm{B_{1}}, \bm{R_{1}}), (\bm{B_{2}}, \bm{R_{2}}), \ldots, (\bm{B_{n}},
-      \bm{R_{n}})} \\
-    &= {a_{1}, a_{2}, \dots, a_{n}}
-  \end{align*}
+  \begin{split}
+    \bm{A} = \{&\{\{b_1, b_2, \ldots, b_i\}, \{r_1, r_2, \ldots, r_j\}\}_1, \\
+               &\{\{b_1, b_2, \ldots, b_i\}, \{r_1, r_2, \ldots, r_j\}\}_2, \\
+               &\ldots, \{\{b_1, b_2, \ldots, b_i\}, \{r_1, r_2, \ldots, r_j\}\}_n\}
+  \end{split}
+\end{equation}
+
+\begin{equation}
+  \label{eq:communities-of-agents-2}
+  \begin{split}
+    \bm{A} &= {(\bm{B_{1}}, \bm{R_{1}}), (\bm{B_{2}}, \bm{R_{2}}), \ldots, (\bm{B_{n}}, \bm{R_{n}})} \\
+           &= {a_{1}, a_{2}, \dots, a_{n}}
+  \end{split}
 \end{equation}
 
 In the following Subsections, the evolutionary process is described in greater
@@ -236,7 +242,7 @@ are comparable among $MSE$s of price sets of different sizes.
 
 \begin{equation}
   \label{eq:mse}
-  MSE(\bm{R}, \bm{S}) = \frac{\sum_{i=1}^{n}(r_i-s_i)^{2}}_{n}
+  MSE(\bm{R}, \bm{S}) = \frac{\sum_{i=1}^n(r_i-s_i)^2}{n}
 \end{equation}
 
 The randomly generated communities of agents sometimes throw an error during the
@@ -256,11 +262,11 @@ rules could later be added.
 Once all the communities of agents in the system are evaluated to obtain their
 corresponding error, a process of roulette wheel selection takes place. This
 process creates a proportional fitness to each of the communities of agents by
-calculating \ref{eq:proportional-finess}
+calculating \ref{eq:proportional-fitness}
 
 \begin{equation}
   \label{eq:proportional-fitness}
-  p_i = \frac{f_i}_{\sum_{j=1}^{N} f_j}
+  p_i = \frac{f_i}{\sum_{j=1}^{N} f_j}
 \end{equation}
 
 and this proportional fitness is used to associate a probability of selection to
@@ -314,35 +320,37 @@ and $B_2$; the new vector of beliefs for the first community of agents
 corresponds to the concatenation of $A_1$ and $B_2$, and the new vector of
 beliefs for the second community of agents is obtained by concatenating $B_1$
 and $A_2$. This process is then applied to the sets of rules from the two
-communities.
+communities. Algorithm \ref{alg:single-point-crossover} describes the process.
 
 \begin{algorithm}
-  \caption{Single-point crossover algorithm for two communities of agents}
-  \label{euclid}
-  \begin{algorithmic}[1]
+\caption{Single-point crossover algorithm for two communities of agents}
+    \label{alg:single-point-crossover}
+\begin{algorithmic}[1]
+    
     \Procedure{agents-crossover}{$A, B$};
-    \State $bel_A\gets extract_beliefs(A)$
-    \State $bel_B\gets extract_beliefs(B)$
+    \State $bel_A\gets extract\_beliefs(A)$
+    \State $bel_B\gets extract\_beliefs(B)$
     
-    \State $rul_A\gets extract_rules(A)$
-    \State $rul_B\gets extract_rules(B)$
+    \State $rul_A\gets extract\_rules(A)$
+    \State $rul_B\gets extract\_rules(B)$
     
-    \State $bel_point\gets rand_int(len(bel_A))$
-    \State $rul_point\gets rand_int(len(rul_A))$
+    \State $bel\_point\gets rand\_int(len(bel_A))$
+    \State $rul\_point\gets rand\_int(len(rul_A))$
 
-    \State $bel_A1\gets subseq(bel_A, 0, bel_point)$
-    \State $bel_A2\gets subseq(bel_A, bel_point, len(bel_A)$
-    \State $bel_B1\gets subseq(bel_B, 0, bel_point)$
-    \State $bel_B2\gets subseq(bel_B, bel_point, len(bel_B)$
+    \State $bel_{A1}\gets subseq(bel_A, 0, bel\_point)$
+    \State $bel_{A2}\gets subseq(bel_A, bel\_point, len(bel_A))$
+    \State $bel_{B1}\gets subseq(bel_B, 0, bel\_point)$
+    \State $bel_{B2}\gets subseq(bel_B, bel\_point, len(bel_B))$
 
-    \State $rul_A1\gets subseq(rul_A, 0, rul_point)$
-    \State $rul_A2\gets subseq(rul_A, rul_point, len(rul_A)$
-    \State $rul_B1\gets subseq(rul_B, 0, rul_point)$
-    \State $rul_B2\gets subseq(rul_B, rul_point, len(rul_B)$
+    \State $rul_{A1}\gets subseq(rul_A, 0, rul\_point)$
+    \State $rul_{A2}\gets subseq(rul_A, rul\_point, len(rul_A))$
+    \State $rul_{B1}\gets subseq(rul_B, 0, rul\_point)$
+    \State $rul_{B2}\gets subseq(rul_B, rul\_point, len(rul_B))$
 
-    \State \textbf{return} $new_agent(bel_A1 + bel_B2, rul_A1 + rul_B2), new_agent(bel_B1 + bel_A2, rul_B1 + rul_A2)$
+    \State \textbf{return} $agent(bel_{A1} + bel_{B2}, rul_{A1} + rul_{B2}),
+    agent(bel_{B1} + bel_{A2}, rul_{B1} + rul_{A2})$
     \EndProcedure
-  \end{algorithmic}
+\end{algorithmic}
 \end{algorithm}
 
 This crossover algorithm is commonly known as single-point crossover and it was

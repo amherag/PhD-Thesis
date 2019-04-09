@@ -44,6 +44,7 @@
 \usepackage{placeins}
 \usepackage{times}
 
+\usepackage{algorithm}
 \usepackage{algorithmicx}
 \usepackage{algpseudocode}
 
@@ -63,7 +64,7 @@
 \DeclareCaptionFormat{myformat}%
 {#1#2#3 \hspace*{\myindention}}
 \captionsetup{format=myformat}
-\captionsetup[lstlisting]{position=bottom,format=myformat}
+% \captionsetup[lstlisting]{position=bottom,format=myformat}
 \renewcommand{\lstlistingname}{Algoritmo}
 
 %\bibliographystyle{named}
@@ -85,6 +86,8 @@
 %  \renewcommand{\appendixname}%
 %    {Anexos}%
 %}
+
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
 
 \usepackage{blindtext}
 \usepackage{etoolbox}

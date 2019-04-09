@@ -592,7 +592,6 @@ profitable.
 %% individuals.
 
 \subsection{AUD/USD 4 Agents, 4 Rules, 4 Individuals}
-\label{}
 
 One can see in the first sentence of the training set that 3 agents decided to
 trade when a weak resistance is presented above the current price. In the
@@ -604,7 +603,6 @@ price. This behavior showed to also be profitable in the testing stage, as is
 shown in the fourth sentence of the corresponding set.
 
 \subsubsection{Training}
-\label{}
 
 {\small
   \begin{itemize}
@@ -627,7 +625,6 @@ shown in the fourth sentence of the corresponding set.
 }
 
 \subsubsection{Testing}
-\label{}
 
 {\small
   \begin{itemize}
@@ -650,7 +647,6 @@ shown in the fourth sentence of the corresponding set.
 }
 
 \subsection{EUR/GBP 4 Agents, 4 Rules, 4 Individuals}
-\label{}
 
 An interesting situation in these sets of interpretations is that the only
 sentence in the training set that signals an actual trade action is among the
@@ -660,7 +656,6 @@ behavior presented by this model, which agrees the profit plots of the model
 presented in the previous Section.
 
 \subsubsection{Training}
-\label{}
 
 {\small
   \begin{itemize}
@@ -687,7 +682,6 @@ presented in the previous Section.
 }
 
 \subsubsection{Testing}
-\label{}
 
 {\small
   \begin{itemize}
@@ -741,11 +735,11 @@ were chosen because this configuration showed a good performance, considering
 only the results included in this thesis document; other configurations could
 have achieved a better performance.
 
-\begin{table}[]
+\begin{table}[ht]
 \caption{Performance of different approaches to financial market forecasting}
 \label{table:results}
 \begin{tabular}{llllll}
-Work                                         & Base Algorithm                  & Optimization Algorithm & Market Type              & ROR & SD \\
+Work                                         & Technique                  & Optim. Alg. & Market Type              & ROR & SD \\
 \cite{Fernandez-Blanco2008} & TI            & Genetic algorithm         & Stock             & 76.13\%     & 14.15\%            \\
 \cite{Korczak2015}          & Fuzzy MAS        & -                      & ForEx & 32.77\%     & 109.09\%           \\
 \cite{Korczak2016}          & Fuzzy MAS        & Genetic algorithm      & ForEx & 223.08\%    & 385.7\%            \\
