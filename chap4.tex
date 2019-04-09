@@ -9,16 +9,18 @@ performed.
 \label{section:preprocessing-a-financial-market-using-retracements}
 
 Many works that propose methods for financial market forecasting or modelling do
-not preprocess the time series that represent a financial market \cite{}. As a
-consequent, some of the models that try to simulate these markets have an
-additional complexity layer to deal with, similarly to the difficulty that a
-neural network would encounter at trying to do facial recognition to
-un-processed images. For this reason, a facial recognition algorithm needs to be
-fed images that have been rotated, scaled down, and reduced in noise by using
-image processing algorithms \cite{}. After doing this preprocessing, it is
+not preprocess the time series that represent a financial market to obtain
+different aspects of it, such as its volatility, its momentum or support and
+resistance levels \cite{Elliott2016}. As a consequent, some of the models that
+try to simulate these markets have an additional complexity layer to deal with,
+similarly to the difficulty that a neural network would encounter at trying to
+do facial recognition to un-processed images. For this reason, a facial
+recognition algorithm needs to be fed images that have been rotated, scaled
+down, and reduced in noise by using image processing algorithms
+\cite{Bieniecki2007} \cite{Heseltine2003}. After doing this preprocessing, it is
 easier for a modelling algorithm to create a model of a financial market, as it
 does not have to waste time and effort at trying to distinguish between noise
-and significant data. 
+and significant data.
 
 For financial market preprocessing, an option is to use technical indicators:
 mathematical calculations that are applied to time series that represent the
@@ -29,7 +31,7 @@ line that represents each of the data points in the time series, as can be seen
 in Figure~\ref{figure:moving-average-noise}. Other technical indicators can
 provide other types of insight about a market, such as the market's volatility,
 support and resistance levels, and overbought and oversold levels, among others
-\cite{}.
+\cite{Vora2011}.
 
 \begin{figure}
 \caption{Using a moving average to remove the noise from a financial market time
