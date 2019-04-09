@@ -520,4 +520,3 @@ en el
 
 \def\abstract{\subsection*{Resumen}\small\def\baselinestretch{1}\@normalsize}
 \def\endabstract{\par}
-
