@@ -69,7 +69,7 @@ a trade are shown (extracted from the work by Baker and Riciardi \cite{BakerHKen
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{img/trading-psychology.png}
+\includegraphics[width=1.0\textwidth]{img/trading-psychology.png}
 \caption{Investor sentiment and the business cycle}
 \label{figure:trading-psychology}
 \end{figure}
@@ -115,7 +115,7 @@ represents the lowest and highest prices that occurred during the session.
 %% These two will be redesigned to match the thesis document style
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{img/candlestick-chart.png}
+\includegraphics[width=1.0\textwidth]{img/candlestick-chart.png}
 \caption{Example of a candlestick chart}
 \label{figure:candlestick-chart}
 \end{figure}
@@ -146,7 +146,7 @@ method.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{img/candlestick-patterns.png}
+\includegraphics[width=1.0\textwidth]{img/candlestick-patterns.png}
 \caption{Examples of candlestick patterns: (a) bullish engulfing, (b) bearish engulfing, (c) harami, (d) dark cloud cover, (e) rising sun}
 \label{figure:candlestick-patterns}
 \end{figure}
@@ -197,7 +197,7 @@ financial market price chart can be seen in Figure
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{img/retracements.png}
+\includegraphics[width=1.0\textwidth]{img/retracements.png}
 \caption{Example of retracements in a financial market price chart}
 \label{figure:retracements-in-financial-market}
 \end{figure}
@@ -219,7 +219,7 @@ the ratios exactly.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{img/fibonacci-retracements.png}
+\includegraphics[width=1.0\textwidth]{img/fibonacci-retracements.png}
 \caption{Example of Fibonacci retracements in a financial market price chart}
 \label{figure:fibonacci-retracements-in-financial-market}
 \end{figure}
@@ -317,14 +317,14 @@ presented above.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{img/antecedents.png}
+\includegraphics[width=1.0\textwidth]{img/antecedents.png}
 \caption{Antecedents in a fuzzy system}
 \label{figure:antecedents}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{img/consequents.png}
+\includegraphics[width=1.0\textwidth]{img/consequents.png}
 \caption{Consequents in a fuzzy system}
 \label{figure:consequents}
 \end{figure}
@@ -354,13 +354,15 @@ follows an interface similar to the one provided by Matlab's fuzzy logic
 toolbox, and provides more robust graphical implementations than the current
 version of Wagner's toolkit.
 
+For this this thesis a fuzzy system was created from scratch. This decision was taken because it would facilitate its integration with the multi-agent system that was also implemented from scratch and because the author of the proposed method could not find any implementation of a Mamdani intuitionistic fuzzy system at the time when the implementation of the system started. This implementation is described in \cite{Hernandez-aguila2016} and \cite{Hernandez-Aguila2017}.
+
 \subsection{Intuitionistic Fuzzy Sets}
 \label{subsection:intuitionistic-fuzzy-sets}
 
 In contrast to the traditional fuzzy sets discussed in Subsection
 \ref{subsection:fuzzy-sets}, intuitionistic fuzzy sets consider a grade of
 non-membership in addition to a grade of membership associated to an element in
-the fuzzy set, as expressed by \ref{eq:ifs-definition}. Intuitionistic fuzzy
+the fuzzy set, as expressed by Equation \ref{eq:ifs-definition}. Intuitionistic fuzzy
 sets were defined by Atanassov in \cite{Atanassov1986}.
 
 % intuitionistic fuzzy set
@@ -370,7 +372,7 @@ sets were defined by Atanassov in \cite{Atanassov1986}.
 \end{equation}
 
 For every of the elements contained in an intuitionistic fuzzy set,
-\ref{eq:intuitionistic-interval} must hold true.
+Equation \ref{eq:intuitionistic-interval} must hold true.
 
 % intuitionistic interval
 \begin{equation}
@@ -380,7 +382,7 @@ For every of the elements contained in an intuitionistic fuzzy set,
 
 Intuitionistic fuzzy sets are an extension to traditional fuzzy sets, as any
 traditional fuzzy set can be expressed as a particular case of an intuitionistic
-fuzzy set, as in \ref{eq:ifs-form}.
+fuzzy set, as in Equation \ref{eq:ifs-form}.
 
 % every ordinary fuzzy set has the form
 \begin{equation}
@@ -390,9 +392,9 @@ fuzzy set, as in \ref{eq:ifs-form}.
 
 If the sum of the membership $\mu_{A}(x)$ and non-membership $\nu_{A}(x)$ of an
 element is less than $1$, the concept of indeterminacy or hesitancy arises,
-which is described by \ref{eq:indeterminacy}. Indeterminacy is used to represent
+which is described by Equation \ref{eq:indeterminacy}. Indeterminacy is used to represent
 doubt in the grade of membership of an element in an intuitionistic fuzzy set
-and is described by \ref{eq:indeterminacy}.
+and is described by Equation \ref{eq:indeterminacy}.
 
 % if
 \begin{equation}

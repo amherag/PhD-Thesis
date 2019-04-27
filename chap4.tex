@@ -35,7 +35,7 @@ support and resistance levels, and overbought and oversold levels, among others
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.7\textwidth]{img/moving-average.png}
+  \includegraphics[width=1.0\textwidth]{img/moving-average.png}
   \caption{Using a moving average to remove the noise from a financial market time
   series}
   \label{figure:moving-average-noise}
@@ -54,7 +54,7 @@ moving averages can be used to represent different perspectives of the market.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{img/multiple-technical-indicators.png}
+\includegraphics[width=1.0\textwidth]{img/multiple-technical-indicators.png}
 \caption{Using three moving averages to represent different perspectives of the
   market}
 \label{figure:multiple-technical-indicators}
@@ -71,7 +71,7 @@ preprocessing stage in this work is used mainly in the hopes of facilitating the
 agents the interpretation of the market, and thus facilitate the creation of a
 model that simulates the market. The backbone idea of this method is to apply a
 series of retracements to each of the price differences in a data set. These
-price differences are described by \ref{eq:price-differences}.
+price differences are described by Equation \ref{eq:price-differences}.
 
 \begin{equation}
   \label{eq:price-differences}
@@ -96,7 +96,7 @@ guidelines printed every multiple of $0.0010$.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{img/retracements-preprocessing-one-price.png}
+\includegraphics[width=1.0\textwidth]{img/retracements-preprocessing-one-price.png}
 \caption{Retracement lines observed at a singe time point}
 \label{figure:retracements-one-price}
 \end{figure}
@@ -126,7 +126,7 @@ price points, for a set of 10 different price levels.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\textwidth]{img/retracements-preprocessing-all-prices.png}
+\includegraphics[width=1.0\textwidth]{img/retracements-preprocessing-all-prices.png}
 \caption{Retracement lines observed for every time point}
 \label{figure:retracements-all-prices}
 \end{figure}
@@ -342,9 +342,9 @@ helpful in breaking down the different factors that guided an agent to a
 decision.
 
 The proposed method can specifically help the user to understand the following
-characteristics of the market:
+Characteristics of the market:
 
-\begin{itemize}
+\begin{enumerate}
 \item \label{item:agents-perception} The number of agents that are perceiving
   the market in some way.
 \item \label{item:agents-decisions} The number of agents that are taking certain
@@ -352,29 +352,29 @@ characteristics of the market:
 \item \label{item:agents-profit} The generated profit per agent in each of the
   training or testing datasets.
 \item \label{item:agents-doubt} How doubt or hesitancy is influencing an agent's
-  perceptions and decisions
-\end{itemize}
+  perceptions and decisions.
+\end{enumerate}
 
-\ref{item:agents-perception} is obtained by examining the agents beliefs and/or
+Characteristic \ref{item:agents-perception} is obtained by examining the agents beliefs and/or
 the outputs of the preprocessing algorithm associated to these
 beliefs. Considering the retracements preprocessing algorithm explained in
 Section \ref{section:preprocessing-a-financial-market-using-retracements}, one
 can calculate how many agents perceived that a market was experiencing a strong
 resistance above the current price, for example. Furthermore, this calculation
 can be extended to determine the percentage of the times where these agents
-perceived this resistance. In a similar fashion, \ref{item:agents-decisions}
+perceived this resistance. In a similar fashion, Characteristic \ref{item:agents-decisions}
 helps the user to describe the trading decisions of the agents: one can
 calculate how many agents decided to buy at certain time in the market, and it
 can be extended to determine what percentage of the time those agents decided to
 take that decision.
 
-\ref{item:agents-profit} is useful to determine the efficacy of an agent, as in
+Characteristic \ref{item:agents-profit} is useful to determine the efficacy of an agent, as in
 the end one is interested in examining the behavior of the agents that generated
 a greater profit than the others, in order to follow its recommendations; or
 maybe one can be interested in examining those who performed badly, in order to
 avoid taking similar decisions.
 
-Finally, \ref{item:agents-doubt} allows the system to express how sure were the
+Finally, Characteristic \ref{item:agents-doubt} allows the system to express how sure were the
 agents about their perceptions or trade decisions. One can use this doubt
 measurement to decide if an economic bubble is approaching, for example, as this
 economic phenomenon is caused by factors that are exogenous to the nature of the

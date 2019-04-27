@@ -23,6 +23,46 @@ of agents, number of rules and number of individuals. Additionally, some
 undocumented experiments were showing a stagnation after the 100th generation
 regarding error minimization.
 
+%\subsection{Summary of the Parameters used in the Genetic Algorithm}
+%\label{subsection:summary-of-the-parameters-used-in-the-genetic-algorithm}
+
+%Explain that the number of iterations is explained in the next Chapter
+%As this Chapter only explains the implementation; parameters that are "hard-coded"
+%However, we include these parameters in here
+%Or maybe move this table to Chapter 6
+
+The parameters used by the genetic algorithm explained in Section \ref{section:optimization-of-the-agent-based-model-using-a-genetic-algorithm} are summarized in Table \ref{table:ga-parameters}. All the parameters are constant across all the experiments with the exception of population size, which can take a value of 4, 10 or 20 individuals, depending on the experiment.
+
+\begin{table}[ht]
+\caption{Parameters used in the Genetic Algorithm}
+\label{table:ga-parameters}
+\centering
+\begin{tabular}{|c|c|}
+\hline
+Parameter & Value \\
+\hline
+\hline
+Fitness Function & Mean Squared Error \\
+\hline
+Population Size & 4, 10 or 20 \\
+\hline
+Number of Generations & 100 \\
+\hline
+Stop Criteria & Number of Generations \\
+\hline
+Selection Operator & Roulette Wheel \\
+\hline
+Crossover Operator & Single-point \\
+\hline
+Crossover Chance & 60\% \\
+\hline
+Mutation Operator & Uniform Mutation \\
+\hline
+Mutation Chance & 0.5\% \\
+\hline
+\end{tabular}
+\end{table}
+
 The experiments cover the following variants in the parameters: 4 agents, 4
 rules and 4 individuals; 10 agents, 10 rules and 10 individuals; 20 agents, 20
 rules and 20 individuals; and these variants are used to created models for the

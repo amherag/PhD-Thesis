@@ -115,6 +115,9 @@ indeterminacy is equal to $\pi$, then the max membership value in the membership
 function is equal to $1 - \pi$, and the max non-membership value in the
 non-membership function is equal to $\pi$.
 
+The structure of the agents is further discussed in Section \ref{section:optimization-of-the-agent-based-model-using-a-genetic-algorithm}
+and described in Equations \ref{eq:communities-of-agents} and \ref{eq:communities-of-agents-2}.
+
 Each of the agents uses their beliefs to create a perception of the market based
 on price areas that are associated to a weight that is based on the number of
 retracements contained in them, as explained in Section
@@ -139,6 +142,24 @@ many units is it going to trade for a particular market perception.
 \label{figure:areas-for-ifis}
 \end{figure}
 
+Examples of translations of the previously described rule vectors to their respective fuzzy rule representations are presented below:
+
+\begin{itemize}
+	\item $[[88, 6, 0.01], [65, 89, 0.37], [40, 3, 0.56], [51, 86, 0.41]]$
+	\begin{itemize}
+    	\item IF UpperArea IS VeryHigh AND CurrentArea IS High AND LowerArea IS Low THEN Trade IS Hold 
+    \end{itemize}
+    \item $[[53, 90, 0.66], [8, 71, 0.34], [21, 49, 0.13], [28, 67, 0.79]]$
+	\begin{itemize}
+    	\item IF UpperArea IS Medium AND CurrentArea IS VeryLow AND LowerArea IS Low THEN Trade IS Sell 
+    \end{itemize}
+\end{itemize}
+
+%\begin{equation}
+%  \label{eq:hesitancy-interpretation}
+%  \beta = \frac{\pi}{\sqrt{\left| M_\mu - M_\nu \right| + 1}}
+%\end{equation}
+
 The antecedents of a rule fire the same consequent, and the intersection
 operation is applied over the three generated fired consequents (the alpha-cuts
 of the consequents). The intersection operation is used to simulate the Boolean
@@ -146,7 +167,7 @@ operator \textit{and} among the propositions \cite{Atanassov1986}. After
 generating each of the fired -- or alpha-cut -- consequents for each of the rules,
 an aggregation is performed using the union operator, which simulates the
 consideration of all the rules from an agent. This aggregation process involving
-the consequents is described in \ref{eq:aggregation-process}.
+the consequents is described by Equation \ref{eq:aggregation-process}.
 % Could the above be stated as a Formula? - Mario 
 
 \begin{equation}
@@ -158,7 +179,7 @@ The resulting aggregation from the aforementioned process is then
 defuzzified using the method found in \cite{Hernandez-Aguila2017} to obtain a
 crisp value in the interval $[0, 100]$. In order to be able to simulate sell and
 buy orders for the agent, the result of the fuzzy system is then processed by
-\ref{eq:agent-trade-units}, which maps the crisp value to a value in the
+Equation \ref{eq:agent-trade-units}, which maps the crisp value to a value in the
 interval of $[-0.005, 0.005]$ that corresponds to the number of units to buy or
 sell.
 
@@ -207,7 +228,7 @@ chromosome in the genetic algorithm. It can be said that the chromosomes
 represent communities of agents. An agent $a$, which is composed
 of a set of beliefs $\bm{B}$ and a set of rules $\bm{R}$, create a single
 individual $\bm{A}$ in the genetic algorithm. Other representations for this are
-depicted in \ref{eq:communities-of-agents} and \ref{eq:communities-of-agents-2}.
+depicted by Equations \ref{eq:communities-of-agents} and \ref{eq:communities-of-agents-2}.
 % Why not representing the above using math notation (tuples, vectors, sets, indixes, etc.) - Mario
 % you could also comment on the other option indenpendent optimization
 
@@ -227,6 +248,13 @@ depicted in \ref{eq:communities-of-agents} and \ref{eq:communities-of-agents-2}.
            &= {a_{1}, a_{2}, \dots, a_{n}}
   \end{split}
 \end{equation}
+
+%And a specific example of the structure of an individual is given in Equation \ref{eq:communities-of-agents-3}:
+
+%\begin{equation}
+%  \label{eq:communities-of-agents-3}
+%    \bm{A} = {{{0.71, 0.5}, {}}}
+%\end{equation}
 
 In the following Subsections, the evolutionary process is described in greater
 detail.
@@ -264,21 +292,20 @@ rules could later be added.
 Once all the communities of agents in the system are evaluated to obtain their
 corresponding error, a process of roulette wheel selection takes place. This
 process creates a proportional fitness to each of the communities of agents by
-calculating \ref{eq:proportional-fitness}
-
-\begin{equation}
-  \label{eq:proportional-fitness}
-  p_i = \frac{f_i}{\sum_{j=1}^{N} f_j}
-\end{equation}
-
-and this proportional fitness is used to associate a probability of selection to
-each community of agents. A random probability of selection in the interval of
+calculating Equation \ref{eq:proportional-fitness} and this proportional fitness is used
+to associate a probability of selection to each community of agents. A random
+probability of selection in the interval of
 $(0, 1.0]$ is generated. If the proportional fitness of a community of agents is
 greater than this probability, the individual is chosen, but if this is not the
 case, the proportional fitness of that agent is accumulated with the next agent
 to be considered for selection, and the process is repeated until a community of
 agents with an accumulated proportional fitness greater than the random
 probability is found.
+
+\begin{equation}
+  \label{eq:proportional-fitness}
+  p_i = \frac{f_i}{\sum_{j=1}^{N} f_j}
+\end{equation}
 
 The roulette wheel selection algorithm was chosen because it has been suggested
 that it works well with both small and medium sized population, in addition to
@@ -292,12 +319,13 @@ being a widely used selection algorithm \cite{Hancock2012}
 \label{subsection:mutation}
 
 After selecting a community of agents using the roulette wheel selection
-algorithm, there's a probability of mutation of 0.5\%. The mutation process can
+algorithm, there's a probability of mutation. The mutation process can
 affect an individual in different parts of its constitution, as the
 aforementioned mutation probability determines if a gene (a belief or a rule
 proposition) should suffer the mutation. This can be seen as a traversal of
 every belief and rule in a community of agents, and every time one of the nodes
 in this traversal process is visited, there's a chance of modifying the node.
+This process is known as the uniform mutation operator \cite{sivanandam2007introduction}.
 
 In order to perform the actual mutation, a new random belief value is generated,
 in the case of mutating a belief, or a new rule proposition (an antecedent or a
